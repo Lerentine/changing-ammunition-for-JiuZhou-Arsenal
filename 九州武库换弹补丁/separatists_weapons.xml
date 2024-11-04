@@ -1,0 +1,2624 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Override>
+<Items>
+  <!--武器-->
+  <!--AN94-->
+  <Item name="AN94" identifier="tsm_fkj_an94" subcategory="tsm_separatists" category="weapon" cargocontaineridentifier="tsm_metalcrate" tags="mediumitem,weapon,gun,gunsmith,mountableweapon,provocativetohumanai,bulkyweapon" scale="0.23" health="10" impactsoundtag="impact_metal_light" description="">
+    <PreferredContainer primary="secarmcab" secondary="armcab,weaponholder" />
+    <Price baseprice="762" displaynonempty="true" minleveldifficulty="35" buyingpricemultiplier="5">
+      <Price storeidentifier="merchantarmory" minamount="0" maxamount="2" />
+      <Price storeidentifier="merchantcity" minamount="0" maxamount="1" />
+      <Price storeidentifier="merchantresearch" minamount="0" maxamount="1" />
+      <Reputation faction="separatists" min="40" />
+    </Price>
+    <Fabricate suitablefabricators="tsm_fabricator" requiredtime="20" requiresrecipe="false">
+      <RequiredSkill identifier="weapons" level="50" />
+      <RequiredItem identifier="tsm_fkj_an94" amount="1" />
+      <RequiredItem identifier="tsm_yh_weaponbox" amount="1" />
+    </Fabricate>
+    <Deconstruct time="10">
+      <Item identifier="tsm_yh_weaponbox" />
+      <Item identifier="tsm_hpc" />
+    </Deconstruct>
+    <InventoryIcon texture="%ModDir:2953749635%/weapons/反抗军/separatists.png" sourcerect="1056,2321,161,179" origin="0.5,0.5" />
+    <Sprite texture="%ModDir:2953749635%/weapons/反抗军/separatists.png" sourcerect="0,1675,597,137" depth="0.55" origin="0.5,0.5" />
+    <BrokenSprite texture="%ModDir:2953749635%/weapons/反抗军/separatists.png" sourcerect="4,1521,592,134" maxcondition="90" depth="0.55" origin="0.5,0.5" />
+    <Body width="597" height="137" density="52" />
+    <Holdable slots="Any,RightHand+LeftHand" controlpose="true" holdpos="70,-1" aimpos="70,-1" handle1="-140,-20" handle2="70,12" holdangle="-35" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.7" setvalue="true" />
+      <StatusEffect type="OnSecondaryUse" target="Character" SpeedMultiplier="0.8" setvalue="true" />
+      <StatusEffect type="OnUse" target="Character" SpeedMultiplier="0.6" setvalue="true" />
+      <StatusEffect type="OnUse" target="this" condition="5" stackable="false" setvalue="true" checkconditionalalways="true" delay="0.05">
+        <Conditional condition="eq 10" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="this" condition="10" stackable="false" setvalue="true" checkconditionalalways="true" delay="0.05">
+        <Conditional condition="eq 5" />
+      </StatusEffect>
+    </Holdable>
+    <RangedWeapon reload="0.11" weapondamagemodifier="1.25" holdtrigger="true" barrelpos="230,20" spread="15" unskilledspread="60" combatPriority="90" drawhudwhenequipped="true" crosshairscale="0.15">
+      <Crosshair texture="%ModDir:2953749635%/png/crosshair.png" sourcerect="32,275,198,198" />
+      <CrosshairPointer texture="%ModDir:2953749635%/png/crosshair.png" sourcerect="32,275,198,198" />
+      <ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="229,221,215,255" />
+      <Sound file="%ModDir:2953749635%/weapons/反抗军/an941.ogg" type="OnUse" range="3000" selectionmode="Random" />
+      <Sound file="%ModDir:2953749635%/weapons/反抗军/an942.ogg" type="OnUse" range="3000" />
+      <Sound file="%ModDir:2953749635%/weapons/反抗军/an943.ogg" type="OnUse" range="3000" />
+      <Sound file="%ModDir:2953749635%/weapons/反抗军/an944.ogg" type="OnUse" range="3000" />
+      <StatusEffect type="OnUse" target="Character" disabledeltatime="true" comparison="and">
+        <Conditional skillrequirement="true" weapons="lt 70" />
+        <Conditional recoilstabilized="lte 0" />
+        <Conditional incrementalstun="lte 55" />
+        <Affliction identifier="stun" strength="0.1" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Character" disabledeltatime="true" comparison="and">
+        <Conditional skillrequirement="true" weapons="lt 50" />
+        <Conditional recoilstabilized="lte 0" />
+        <Conditional incrementalstun="lte 70" />
+        <Affliction identifier="stun" strength="0.5" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Character" disabledeltatime="true" comparison="and" setvalue="true">
+        <Conditional skillrequirement="true" weapons="lt 30" />
+        <Conditional recoilstabilized="lte 0" />
+        <Conditional incrementalstun="lte 90" />
+        <Affliction identifier="stun" strength="0.75" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Contained">
+        <Use />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This">
+        <Conditional Condition="eq 0" targetcontaineditem="true" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/reload7.ogg" range="2000" loop="false" />
+      </StatusEffect>
+      <StatusEffect type="OnContained" target="This" reload="0.07" setvalue="true" comparison="and">
+        <Conditional qualitylevel="eq 3" />
+        <Conditional reload="eq 0.1" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" reload="0.12" setvalue="true" delay="0.08">
+        <Conditional qualitylevel="lt 3" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" reload="0.08" setvalue="true" delay="0.05">
+        <Conditional qualitylevel="lt 3" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" reload="0.11" setvalue="true" delay="0.2">
+        <Conditional qualitylevel="eq 3" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" reload="0.07" setvalue="true" delay="0.05">
+        <Conditional qualitylevel="eq 3" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" spread="-0.5" unskilledspread="-1" disabledeltatime="true">
+        <Conditional spread="gte 5" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" spread="-0.5" unskilledspread="-1" disabledeltatime="true">
+        <Conditional skillrequirement="true" weapons="gte 75" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" spread="+3">
+        <Conditional spread="lt 15" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" unskilledspread="+4">
+        <Conditional unskilledspread="lt 50" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This">
+        <Explosion range="100.0" force="0.5" camerashake="17" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" delay="0.5" forceplaysounds="true">
+        <Conditional InWater="false"/>
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete1.ogg" type="OnUse" range="1500" selectionmode="Random" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete2.ogg" type="OnUse" range="1500" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete3.ogg" type="OnUse" range="1500" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete4.ogg" type="OnUse" range="1500" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This">
+        <ParticleEmitter particle="tsm_bulletfalldown" emitinterval="2.1" particleamount="1" particlespersecond="50" anglemin="70" anglemax="100" velocitymin="100" velocitymax="200" copyentityangle="true" scalemin="2" scalemax="2" />
+      </StatusEffect>
+      <RequiredItems items="762mag" type="Contained" msg="ItemMsgAmmoRequired" />
+      <RequiredSkill identifier="weapons" level="70" />
+    </RangedWeapon>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="false" containedstateindicatorstyle="bullet" containedstateindicatorslot="0">
+      <Containable items="762mag" hide="false" itempos="-13,-8" depth="0.56" setactive="true">
+      <!--换弹-->
+      <StatusEffect type="OnInserted" target="This" holdpos="20,-40" holdangle="70" maxchargetime="999" setvalue="true"/>
+      <StatusEffect type="OnInserted" target="This" setvalue="true">
+        <sound file="%ModDir%/ogg/reload2.ogg" type="OnInserted" range="500.0" loop="false" volume="1.5"/>
+      </StatusEffect>
+      <StatusEffect target="This" holdpos="70,-1" aimpos="70,-1" handle1="-140,-20" handle2="70,12" holdangle="-35" disabledeltatime="true" checkconditionalalways="true" delay="2.2" maxchargetime="0" setvalue="true">
+        <conditional maxchargetime="eq 999"/>
+      </StatusEffect>
+      </Containable>
+      <SlotIcon slotindex="0" texture="%ModDir:2953749635%/png/ui.png" sourcerect="418,202,71,50" origin="0.45,0.5" />
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable items="flashlight" hide="false" itempos="20,1" setactive="true" />
+        <SlotIcon slotindex="1" texture="Content/UI/CampaignUIAtlas2.png" sourcerect="896,536,128,64" origin="0.45,0.5" />
+      </SubContainer>
+    </ItemContainer>
+    <aitarget sightrange="2500" soundrange="5000" fadeouttime="6" />
+    <Quality>
+      <QualityStat stattype="FirepowerMultiplier" value="0.12" />
+    </Quality>
+    <Upgrade gameversion="0.10.0.0" scale="0.5" />
+    <SkillRequirementHint identifier="weapons" level="70" />
+  </Item>
+  <!--AK74-->
+  <Item name="AK74" identifier="tsm_fkj_ak74" subcategory="tsm_separatists" category="weapon" cargocontaineridentifier="tsm_metalcrate" tags="mediumitem,weapon,gun,gunsmith,mountableweapon,provocativetohumanai,bulkyweapon" scale="0.25" impactsoundtag="impact_metal_light" description="">
+    <PreferredContainer primary="secarmcab" secondary="armcab,weaponholder" />
+    <Price baseprice="262" displaynonempty="true" minleveldifficulty="0" buyingpricemultiplier="5"/>
+    <Price storeidentifier="merchantcity" minavailable="0" maxavailable="1">
+      <Reputation faction="separatists" min="0" />
+    </Price>
+    <Price storeidentifier="merchantmilitary" minavailable="0" maxavailable="1">
+      <Reputation faction="separatists" min="0" />
+    </Price>
+    <Price storeidentifier="merchantresearch" minavailable="0" maxavailable="1">
+      <Reputation faction="separatists" min="0" />
+    </Price>
+    <Price storeidentifier="merchantarmory" minavailable="1" maxavailable="2">
+      <Reputation faction="separatists" min="0" />
+    </Price>
+    <Fabricate suitablefabricators="tsm_fabricator,fabricator" requiredtime="15" requiresrecipe="false">
+      <RequiredSkill identifier="weapons" level="30" />
+      <RequiredItem identifier="tsm_plastic" amount="1" />
+      <RequiredItem identifier="tsm_item_box" amount="1" />
+    </Fabricate>
+    <Deconstruct time="10">
+      <Item identifier="steel" />
+    </Deconstruct>
+    <InventoryIcon texture="%ModDir:2953749635%/weapons/反抗军/separatists.png" sourcerect="2028,2345,137,144" origin="0.5,0.5" />
+    <Sprite texture="%ModDir:2953749635%/weapons/反抗军/separatists.png" sourcerect="0,27,528,105" depth="0.55" origin="0.5,0.5" />
+    <Body width="528" height="105" density="52" />
+    <Holdable slots="Any,RightHand+LeftHand" controlpose="true" holdpos="63,-5" aimpos="66,-5" handle1="-100,-10" handle2="45,5" holdangle="-35" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.85" setvalue="true" />
+      <StatusEffect type="OnSecondaryUse" target="Character" SpeedMultiplier="0.6" setvalue="true" />
+      <StatusEffect type="OnUse" target="Character" SpeedMultiplier="0.4" setvalue="true" />
+    </Holdable>
+    <RangedWeapon reload="0.12" weapondamagemodifier="1" holdtrigger="true" barrelpos="230,20" spread="13" unskilledspread="80" combatPriority="80" drawhudwhenequipped="true" crosshairscale="0.25">
+      <Crosshair texture="%ModDir:2953749635%/png/crosshair.png" sourcerect="32,275,198,198" />
+      <CrosshairPointer texture="%ModDir:2953749635%/png/crosshair.png" sourcerect="32,275,198,198" />
+      <ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="229,221,215,255" />
+      <Sound file="%ModDir:2953749635%/weapons/反抗军/ak741.ogg" type="OnUse" range="3000" selectionmode="Random" />
+      <Sound file="%ModDir:2953749635%/weapons/反抗军/ak742.ogg" type="OnUse" range="3000" />
+      <Sound file="%ModDir:2953749635%/weapons/反抗军/ak743.ogg" type="OnUse" range="3000" />
+      <StatusEffect type="OnUse" target="Contained">
+        <Use />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This">
+        <Conditional Condition="eq 0" targetcontaineditem="true" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/reload7.ogg" range="2000" loop="false" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This">
+        <Explosion range="100.0" force="0.75" camerashake="24" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" delay="0.5" target="This" forceplaysounds="true">
+        <Conditional InWater="false"/>
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete1.ogg" type="OnUse" range="1500" selectionmode="Random" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete2.ogg" type="OnUse" range="1500" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete3.ogg" type="OnUse" range="1500" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete4.ogg" type="OnUse" range="1500" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This">
+        <ParticleEmitter particle="tsm_bulletfalldown" emitinterval="2.1" particleamount="1" particlespersecond="50" anglemin="70" anglemax="100" velocitymin="100" velocitymax="200" copyentityangle="true" scalemin="2" scalemax="2" />
+      </StatusEffect>
+      <RequiredItems items="545mag" type="Contained" msg="ItemMsgAmmoRequired" />
+      <RequiredSkill identifier="weapons" level="30" />
+      <StatusEffect type="Always" target="This" unskilledspread="-10">
+        <Conditional unskilledspread="gt 15" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" unskilledspread="+4" disabledeltatime="true" comparison="and">
+        <Conditional unskilledspread="lt 35" />
+        <Conditional CanRun="true" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" unskilledspread="+4" disabledeltatime="true" comparison="and">
+        <Conditional unskilledspread="lt 20" />
+        <Conditional CanRun="false" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" spread="-10">
+        <Conditional spread="gt 10" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" spread="+2" disabledeltatime="true" comparison="and">
+        <Conditional spread="lt 14" />
+        <Conditional CanRun="true" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" spread="+2" disabledeltatime="true" comparison="and">
+        <Conditional spread="lt 10" />
+        <Conditional CanRun="false" />
+      </StatusEffect>
+    </RangedWeapon>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="false" containedstateindicatorstyle="bullet" containedstateindicatorslot="0">
+      <Containable items="545mag" hide="false" itempos="-3,-6" depth="0.56" setactive="true">
+      <!--换弹-->
+      <StatusEffect type="OnInserted" target="This" holdpos="20,-40" holdangle="70" maxchargetime="999" setvalue="true"/>
+      <StatusEffect type="OnInserted" target="This" setvalue="true">
+        <sound file="%ModDir%/ogg/reload1.ogg" type="OnInserted" range="500.0" loop="false" volume="1.5"/>
+      </StatusEffect>
+      <StatusEffect target="This" holdpos="70,-1" aimpos="70,-1" handle1="-140,-20" handle2="70,12" holdangle="-35" disabledeltatime="true" checkconditionalalways="true" delay="2" maxchargetime="0" setvalue="true">
+        <conditional maxchargetime="eq 999"/>
+      </StatusEffect>
+      </Containable>
+      <SlotIcon slotindex="0" texture="%ModDir:2953749635%/png/ui.png" sourcerect="418,202,71,50" origin="0.45,0.5" />
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable items="flashlight" hide="false" itempos="26,0" setactive="true" />
+        <SlotIcon slotindex="1" texture="Content/UI/CampaignUIAtlas2.png" sourcerect="896,536,128,64" origin="0.45,0.5" />
+      </SubContainer>
+    </ItemContainer>
+    <aitarget sightrange="2000" soundrange="3000" fadeouttime="6" />
+    <Quality>
+      <QualityStat stattype="FirepowerMultiplier" value="0.1" />
+    </Quality>
+    <Upgrade gameversion="0.10.0.0" scale="0.5" />
+    <SkillRequirementHint identifier="weapons" level="30" />
+  </Item>
+  <!--OTS Groza-1 “闪电”反抗军无托突击步枪-->
+  <Item name="反抗军OTS Groza-1 “闪电”无托突击步枪" identifier="tsm_fkj_groza" subcategory="tsm_separatists" category="weapon" cargocontaineridentifier="metalcrate" tags="mediumitem,weapon,gun,gunsmith,mountableweapon,tsm_gun,provocativetohumanai" scale="0.3" impactsoundtag="impact_metal_light" >
+    <PreferredContainer primary="secarmcab" secondary="armcab,weaponholder" />
+    <PreferredContainer primary="wrecksecarmcab" minamount="0" maxamount="1" spawnprobability="0.1" />
+    <PreferredContainer primary="abandonedsecarmcab" minamount="1" maxamount="1" spawnprobability="0.1" />
+    <PreferredContainer primary="armcab" secondary="locker" />
+    <Price baseprice="402" soldeverywhere="false" buyingpricemultiplier="5">
+      <Price locationtype="city" maxavailable="1" />
+      <Price locationtype="military" maxavailable="1"/>
+    </Price>
+    <Fabricate suitablefabricators="tsm_fabricator" requiredtime="30" requiresrecipe="false">
+      <RequiredSkill identifier="weapons" level="45" />
+      <RequiredItem identifier="tsm_fkj_ak74" amount="1" />
+      <RequiredItem identifier="tsm_yh_weaponbox" amount="1" />
+    </Fabricate>
+    <Deconstruct time="10">
+      <Item identifier="steel" />
+      <Item identifier="plastic" />
+    </Deconstruct>
+    <InventoryIcon texture="%ModDir:2953749635%/weapons/反抗军/separatists.png" sourcerect="1413,2103,138,131" origin="0.5,0.5" />
+    <Sprite texture="%ModDir:2953749635%/weapons/反抗军/separatists.png" sourcerect="849,1650,271,114" depth="0.55" origin="0.5,0.5" />
+    <Body width="378" height="113" density="52" />
+    <Holdable slots="Any,RightHand+LeftHand" controlpose="true" holdpos="40,-10" aimpos="40,-5" handle1="15,-20" handle2="80,20" holdangle="-35" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.9" setvalue="true" />
+      <StatusEffect type="OnSecondaryUse" target="Character" SpeedMultiplier="0.85" setvalue="true" />
+      <StatusEffect type="OnUse" target="Character" SpeedMultiplier="0.6" setvalue="true" />
+    </Holdable>
+    <!--握持坐标:握持坐标(握把到身体距离),瞄准坐标(握把到身体距离),主手位置,副手位置,闲置握持角度-->
+    <RangedWeapon reload="0.09" holdtrigger="true" weapondamagemodifier="1" barrelpos="140,10" spread="12" unskilledspread="30" combatPriority="80" drawhudwhenequipped="true" crosshairscale="0.3">
+      <Crosshair texture="%ModDir:2953749635%/png/crosshair.png" sourcerect="32,275,198,198" />
+      <CrosshairPointer texture="%ModDir:2953749635%/png/crosshair.png" sourcerect="32,275,198,198" />
+      <ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="229,221,215,255" />
+      <StatusEffect type="OnUse" target="This" forceplaysounds="True">
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/Groza.ogg" type="OnUse" range="3000" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This">
+        <!--后坐力,屏幕抖动-->
+        <Explosion range="100.0" force="1" camerashake="23" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" delay="0.5" target="This" forceplaysounds="true">
+        <Conditional InWater="false"/>
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete1.ogg" type="OnUse" range="1500" selectionmode="Random" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete2.ogg" type="OnUse" range="1500" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete3.ogg" type="OnUse" range="1500" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete4.ogg" type="OnUse" range="1500" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Contained">
+        <Use />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This">
+        <Conditional Condition="eq 0" targetcontaineditem="true" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/reload7.ogg" range="2000" loop="false" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This">
+        <ParticleEmitter particle="tsm_bulletfalldown" emitinterval="2.1" offset="0,0" particleamount="1" particlespersecond="50" anglemin="70" anglemax="100" velocitymin="100" velocitymax="200" copyentityangle="true" scalemin="2" scalemax="2" />
+      </StatusEffect>
+      <RequiredItems items="762mag" type="Contained" msg="ItemMsgAmmoRequired" />
+      <RequiredSkill identifier="weapons" level="55" />
+      <!--动态准星-->
+      <StatusEffect type="Always" target="This" unskilledspread="-14">
+        <Conditional unskilledspread="gt 15" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" unskilledspread="+5" disabledeltatime="true" comparison="and">
+        <Conditional unskilledspread="lt 35" />
+        <Conditional CanRun="true" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" unskilledspread="+3" disabledeltatime="true" comparison="and">
+        <Conditional unskilledspread="lt 20" />
+        <Conditional CanRun="false" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" spread="-14">
+        <Conditional spread="gt 10" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" spread="+2" disabledeltatime="true" comparison="and">
+        <Conditional spread="lt 14" />
+        <Conditional CanRun="true" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" spread="+1" disabledeltatime="true" comparison="and">
+        <Conditional spread="lt 10" />
+        <Conditional CanRun="false" />
+      </StatusEffect>
+    </RangedWeapon>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="false" containedstateindicatorstyle="bullet" containedstateindicatorslot="0">
+      <SlotIcon slotindex="0" texture="%ModDir:2953749635%/png/ui.png" sourcerect="418,202,71,50" origin="0.45,0.5" />
+      <Containable items="762mag" excludeditems="fkj_762_krmag" hide="false" itempos="-6,-8" depth="0.56">
+      <!--换弹-->
+      <StatusEffect type="OnInserted" target="This" holdpos="0,-40" holdangle="80" maxchargetime="999" setvalue="true"/>
+      <StatusEffect type="OnInserted" target="This" setvalue="true">
+        <sound file="%ModDir%/ogg/reload2.ogg" type="OnInserted" range="500.0" loop="false" volume="1.5"/>
+      </StatusEffect>
+      <StatusEffect target="This" holdpos="40,-10" aimpos="40,-5" handle1="15,-20" handle2="80,20" holdangle="-35" disabledeltatime="true" checkconditionalalways="true" delay="2.2" maxchargetime="0" setvalue="true">
+        <conditional maxchargetime="eq 999"/>
+      </StatusEffect>
+      </Containable>
+      <SlotIcon slotindex="1" texture="Content/UI/CampaignUIAtlas2.png" sourcerect="896,536,128,64" origin="0.45,0.5" />
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable items="flashlight" hide="false" itempos="25,3" depth="0.56" setactive="true" />
+      </SubContainer>
+    </ItemContainer>
+    <aitarget sightrange="2200" soundrange="3800" fadeouttime="6" />
+    <Quality>
+      <QualityStat stattype="FirepowerMultiplier" value="0.1" />
+    </Quality>
+    <Upgrade gameversion="0.10.0.0" scale="0.5" />
+    <SkillRequirementHint identifier="weapons" level="55" />
+  </Item>
+  <!--AK103-->
+  <Item name="AK103" identifier="tsm_fkj_ak103" subcategory="tsm_separatists" category="weapon" cargocontaineridentifier="tsm_metalcrate" tags="mediumitem,weapon,gun,gunsmith,mountableweapon,jq430cl,provocativetohumanai,bulkyweapon" scale="0.28" impactsoundtag="impact_metal_light" description="">
+    <PreferredContainer primary="secarmcab" secondary="armcab,weaponholder" />
+    <!--售价-->
+    <Price baseprice="402" displaynonempty="true" minleveldifficulty="10" buyingpricemultiplier="5"/>
+    <Price storeidentifier="merchantcity" minavailable="0" maxavailable="1">
+      <Reputation faction="separatists" min="0" />
+    </Price>
+    <Price storeidentifier="merchantmilitary" minavailable="0" maxavailable="1">
+      <Reputation faction="separatists" min="0" />
+    </Price>
+    <Price storeidentifier="merchantresearch" minavailable="0" maxavailable="1">
+      <Reputation faction="separatists" min="0" />
+    </Price>
+    <Price storeidentifier="merchantarmory" minavailable="1" maxavailable="2">
+      <Reputation faction="separatists" min="0" />
+    </Price>
+    <!--制作-->
+    <Fabricate suitablefabricators="tsm_fabricator,fabricator" requiredtime="20" requiresrecipe="false">
+      <RequiredSkill identifier="weapons" level="50" />
+      <RequiredItem identifier="tsm_yh_weaponbox" amount="1" />
+      <RequiredItem identifier="tsm_fkj_ak74" amount="1" />
+      <RequiredItem identifier="tsm_item_box" amount="1" />
+      <RequiredItem identifier="iron" amount="1" />
+    </Fabricate>
+    <!--分解-->
+    <Deconstruct time="10">
+      <Item identifier="tsm_fkj_ak74" />
+    </Deconstruct>
+    <!--图标以及局内贴图-->
+    <InventoryIcon texture="%ModDir:2953749635%/weapons/反抗军/separatists.png" sourcerect="1900,2353,116,130" origin="0.5,0.5" />
+    <Sprite texture="%ModDir:2953749635%/weapons/反抗军/separatists.png" sourcerect="5,156,465,100" depth="0.55" origin="0.5,0.5" />
+    <Body width="465" height="100" density="52" />
+    <!--存储格子（左手右手）、控制姿势、持握距离、瞄准距离、右手位置、左手位置（左右手位置均为面向右边时的状态）、持握角度、捡起音效-->
+    <Holdable slots="Any,RightHand+LeftHand" controlpose="true" holdpos="63,0" aimpos="65,0" handle1="-90,-10" handle2="45,5" holdangle="-35" msg="ItemMsgPickUpSelect">
+      <!--拿手上时减速、瞄准时减速以及射击时减速-->
+      <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.85" setvalue="true" />
+      <StatusEffect type="OnSecondaryUse" target="Character" SpeedMultiplier="0.6" setvalue="true" />
+      <StatusEffect type="OnUse" target="Character" SpeedMultiplier="0.4" setvalue="true" />
+    </Holdable>
+    <!--握持坐标:握持坐标(握把到身体距离),瞄准坐标(握把到身体距离),主手位置,副手位置,闲置握持角度-->
+    <RangedWeapon reload="0.11" weapondamagemodifier="1" holdtrigger="true" barrelpos="230,20" spread="7" unskilledspread="50" combatPriority="85" drawhudwhenequipped="true" crosshairscale="0.15">
+      <!--准星图标-->
+      <Crosshair texture="%ModDir:2953749635%/png/crosshair.png" sourcerect="32,275,198,198" />
+      <CrosshairPointer texture="%ModDir:2953749635%/png/crosshair.png" sourcerect="32,275,198,198" />
+      <!--枪口火焰-->
+      <ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="229,221,215,255" />
+      <!--枪声-->
+      <Sound file="%ModDir:2953749635%/weapons/反抗军/ak1031.ogg" type="OnUse" range="3000" selectionmode="Random" />
+      <Sound file="%ModDir:2953749635%/weapons/反抗军/ak1032.ogg" type="OnUse" range="3000" />
+      <Sound file="%ModDir:2953749635%/weapons/反抗军/ak1033.ogg" type="OnUse" range="3000" />
+      <StatusEffect type="OnUse" target="Contained">
+        <Use />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This">
+        <Conditional Condition="eq 0" targetcontaineditem="true" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/reload7.ogg" range="2000" loop="false" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This">
+        <!--后坐力,屏幕抖动-->
+        <Explosion range="100.0" force="0.65" camerashake="30" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" />
+      </StatusEffect>
+      <!--子弹落地音效（延迟0.5s）-->
+      <StatusEffect type="OnUse" delay="0.5" target="This" forceplaysounds="true">
+        <Conditional InWater="false"/>
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete1.ogg" type="OnUse" range="1500" selectionmode="Random" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete2.ogg" type="OnUse" range="1500" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete3.ogg" type="OnUse" range="1500" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete4.ogg" type="OnUse" range="1500" />
+      </StatusEffect>
+      <!--抛弹壳-->
+      <StatusEffect type="OnUse" target="This">
+        <ParticleEmitter particle="tsm_bulletfalldown" emitinterval="2.1" particleamount="1" particlespersecond="50" anglemin="70" anglemax="100" velocitymin="100" velocitymax="200" copyentityangle="true" scalemin="2" scalemax="2" />
+      </StatusEffect>
+      <!--需要的弹匣以及武器等级-->
+      <RequiredItems items="762mag" type="Contained" msg="ItemMsgAmmoRequired" />
+      <RequiredSkill identifier="weapons" level="45" />
+      <!--动态准星-->
+      <StatusEffect type="Always" target="This" unskilledspread="-15">
+        <Conditional unskilledspread="gt 10" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" unskilledspread="+3" disabledeltatime="true" comparison="and">
+        <Conditional unskilledspread="lt 35" />
+        <Conditional CanRun="true" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" unskilledspread="+2" disabledeltatime="true" comparison="and">
+        <Conditional unskilledspread="lt 20" />
+        <Conditional CanRun="false" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" spread="-15">
+        <Conditional spread="gt 5" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" spread="+2" disabledeltatime="true" comparison="and">
+        <Conditional spread="lt 12" />
+        <Conditional CanRun="true" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" spread="+1" disabledeltatime="true" comparison="and">
+        <Conditional spread="lt 8" />
+        <Conditional CanRun="false" />
+      </StatusEffect>
+    </RangedWeapon>
+    <!--里容器-->
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="false" containedstateindicatorstyle="bullet" containedstateindicatorslot="0">
+      <!-- 外观 itempos(x)-=26 -->
+      <!--1.弹匣-->
+      <Containable items="762mag" hide="false" itempos="-2,-5" depth="0.56" setactive="true">
+      <!--换弹-->
+      <StatusEffect type="OnInserted" target="This" holdpos="20,-40" holdangle="70" maxchargetime="999" setvalue="true"/>
+      <StatusEffect type="OnInserted" target="This" setvalue="true">
+        <sound file="%ModDir%/ogg/reload2.ogg" type="OnInserted" range="500.0" loop="false" volume="1.5"/>
+      </StatusEffect>
+      <StatusEffect target="This" holdpos="63,0" aimpos="65,0" handle1="-90,-10" handle2="45,5" holdangle="-35" disabledeltatime="true" checkconditionalalways="true" delay="2.2" maxchargetime="0" setvalue="true">
+        <conditional maxchargetime="eq 999"/>
+      </StatusEffect>
+      </Containable>
+      <SlotIcon slotindex="0" texture="%ModDir:2953749635%/png/ui.png" sourcerect="418,202,71,50" origin="0.45,0.5" />
+      <!--2.灯-->
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable items="flashlight" hide="false" itempos="23,3" setactive="true" />
+        <SlotIcon slotindex="1" texture="Content/UI/CampaignUIAtlas2.png" sourcerect="896,536,128,64" origin="0.45,0.5" />
+      </SubContainer>
+    </ItemContainer>
+    <aitarget sightrange="2100" soundrange="3500" fadeouttime="6" />
+    <!--品质-->
+    <Quality>
+      <QualityStat stattype="FirepowerMultiplier" value="0.1" />
+    </Quality>
+    <Upgrade gameversion="0.10.0.0" scale="0.5" />
+    <!--等级提示-->
+    <SkillRequirementHint identifier="weapons" level="45" />
+  </Item>
+  <Item name="AK103（轻量化枪托）" identifier="tsm_fkj_ak103_l" subcategory="tsm_separatists" category="weapon" cargocontaineridentifier="tsm_metalcrate" tags="mediumitem,weapon,gun,gunsmith,mountableweapon,jq430cl,provocativetohumanai,bulkyweapon" scale="0.28" impactsoundtag="impact_metal_light" description="">
+    <PreferredContainer primary="secarmcab" secondary="armcab,weaponholder" />
+    <!--分解-->
+    <Deconstruct time="10">
+      <Item identifier="tsm_fkj_ak74" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="tsm_fabricator" requiredtime="20" requiresrecipe="false">
+      <RequiredSkill identifier="weapons" level="50" />
+      <RequiredItem identifier="tsm_fkj_ak103_l" amount="1" />
+      <RequiredItem identifier="tsm_yh_weaponbox" amount="1" />
+    </Fabricate>
+    <!--图标以及局内贴图-->
+    <InventoryIcon texture="%ModDir:2953749635%/weapons/反抗军/separatists.png" sourcerect="1774,2345,118,132" origin="0.5,0.5" />
+    <Sprite texture="%ModDir:2953749635%/weapons/反抗军/separatists.png" sourcerect="528,156,472,100" depth="0.55" origin="0.5,0.5" />
+    <Body width="472" height="100" density="52" />
+    <!--存储格子（左手右手）、控制姿势、持握距离、瞄准距离、右手位置、左手位置（左右手位置均为面向右边时的状态）、持握角度、捡起音效-->
+    <Holdable slots="Any,RightHand+LeftHand" controlpose="true" holdpos="63,0" aimpos="67,0" handle1="-90,-10" handle2="45,5" holdangle="-35" msg="ItemMsgPickUpSelect">
+      <!--拿手上时减速、瞄准时减速以及射击时减速-->
+      <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.95" setvalue="true" />
+      <StatusEffect type="OnSecondaryUse" target="Character" SpeedMultiplier="0.75" setvalue="true" />
+      <StatusEffect type="OnUse" target="Character" SpeedMultiplier="0.6" setvalue="true" />
+    </Holdable>
+    <!--握持坐标:握持坐标(握把到身体距离),瞄准坐标(握把到身体距离),主手位置,副手位置,闲置握持角度-->
+    <RangedWeapon reload="0.11" weapondamagemodifier="1.1" holdtrigger="true" barrelpos="230,20" spread="8" unskilledspread="40" combatPriority="86" drawhudwhenequipped="true" crosshairscale="0.2">
+      <!--准星图标-->
+      <Crosshair texture="%ModDir:2953749635%/png/crosshair.png" sourcerect="32,275,198,198" />
+      <CrosshairPointer texture="%ModDir:2953749635%/png/crosshair.png" sourcerect="32,275,198,198" />
+      <!--枪口火焰-->
+      <ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="229,221,215,255" />
+      <!--枪声-->
+      <Sound file="%ModDir:2953749635%/weapons/反抗军/ak1031.ogg" type="OnUse" range="3000" selectionmode="Random" />
+      <Sound file="%ModDir:2953749635%/weapons/反抗军/ak1032.ogg" type="OnUse" range="3000" />
+      <Sound file="%ModDir:2953749635%/weapons/反抗军/ak1033.ogg" type="OnUse" range="3000" />
+      <StatusEffect type="OnUse" target="Contained">
+        <Use />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This">
+        <Conditional Condition="eq 0" targetcontaineditem="true" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/reload7.ogg" range="2000" loop="false" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This">
+        <!--后坐力,屏幕抖动-->
+        <Explosion range="100.0" force="0.65" camerashake="27" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" />
+      </StatusEffect>
+      <!--子弹落地音效（延迟0.5s）-->
+      <StatusEffect type="OnUse" delay="0.5" target="This" forceplaysounds="true">
+        <Conditional InWater="false"/>
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete1.ogg" type="OnUse" range="1500" selectionmode="Random" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete2.ogg" type="OnUse" range="1500" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete3.ogg" type="OnUse" range="1500" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete4.ogg" type="OnUse" range="1500" />
+      </StatusEffect>
+      <!--抛弹壳-->
+      <StatusEffect type="OnUse" target="This">
+        <ParticleEmitter particle="tsm_bulletfalldown" emitinterval="2.1" particleamount="1" particlespersecond="50" anglemin="70" anglemax="100" velocitymin="100" velocitymax="200" copyentityangle="true" scalemin="2" scalemax="2" />
+      </StatusEffect>
+      <!--需要的弹匣以及武器等级-->
+      <RequiredItems items="762mag" type="Contained" msg="ItemMsgAmmoRequired" />
+      <RequiredSkill identifier="weapons" level="45" />
+      <!--动态准星-->
+      <StatusEffect type="Always" target="This" unskilledspread="-15">
+        <Conditional unskilledspread="gt 10" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" unskilledspread="+3" disabledeltatime="true" comparison="and">
+        <Conditional unskilledspread="lt 35" />
+        <Conditional CanRun="true" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" unskilledspread="+2" disabledeltatime="true" comparison="and">
+        <Conditional unskilledspread="lt 20" />
+        <Conditional CanRun="false" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" spread="-15">
+        <Conditional spread="gt 5" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" spread="+2" disabledeltatime="true" comparison="and">
+        <Conditional spread="lt 12" />
+        <Conditional CanRun="true" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" spread="+1" disabledeltatime="true" comparison="and">
+        <Conditional spread="lt 8" />
+        <Conditional CanRun="false" />
+      </StatusEffect>
+    </RangedWeapon>
+    <!--里容器-->
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="false" containedstateindicatorstyle="bullet" containedstateindicatorslot="0">
+      <!--1.弹匣-->
+      <Containable items="762mag" hide="false" itempos="-2,-5" depth="0.56" setactive="true">
+      <!--换弹-->
+      <StatusEffect type="OnInserted" target="This" holdpos="20,-40" holdangle="70" maxchargetime="999" setvalue="true"/>
+      <StatusEffect type="OnInserted" target="This" setvalue="true">
+        <sound file="%ModDir%/ogg/reload2.ogg" type="OnInserted" range="500.0" loop="false" volume="1.5"/>
+      </StatusEffect>
+      <StatusEffect target="This" holdpos="63,0" aimpos="65,0" handle1="-90,-10" handle2="45,5" holdangle="-35" disabledeltatime="true" checkconditionalalways="true" delay="2.2" maxchargetime="0" setvalue="true">
+        <conditional maxchargetime="eq 999"/>
+      </StatusEffect>
+      </Containable>
+      <SlotIcon slotindex="0" texture="%ModDir:2953749635%/png/ui.png" sourcerect="418,202,71,50" origin="0.45,0.5" />
+      <!--2.灯-->
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable items="flashlight" hide="false" itempos="23,3" setactive="true" />
+        <SlotIcon slotindex="1" texture="Content/UI/CampaignUIAtlas2.png" sourcerect="896,536,128,64" origin="0.45,0.5" />
+      </SubContainer>
+    </ItemContainer>
+    <aitarget sightrange="2150" soundrange="3500" fadeouttime="6" />
+    <!--品质-->
+    <Quality>
+      <QualityStat stattype="FirepowerMultiplier" value="0.12" />
+    </Quality>
+    <Upgrade gameversion="0.10.0.0" scale="0.5" />
+    <!--等级提示-->
+    <SkillRequirementHint identifier="weapons" level="45" />
+  </Item>
+  <!--ak105-->
+  <Item name="AK105" identifier="tsm_fkj_ak105" subcategory="tsm_separatists" category="weapon" cargocontaineridentifier="tsm_metalcrate" tags="mediumitem,weapon,gun,gunsmith,mountableweapon,jq430cl,provocativetohumanai" scale="0.25" impactsoundtag="impact_metal_light" description="">
+    <PreferredContainer primary="secarmcab" secondary="armcab,weaponholder" />
+    <!--售价-->
+    <Price baseprice="400" displaynonempty="true" minleveldifficulty="10" buyingpricemultiplier="5"/>
+    <Price storeidentifier="merchantcity" minavailable="0" maxavailable="1">
+      <Reputation faction="separatists" min="0" />
+    </Price>
+    <Price storeidentifier="merchantmilitary" minavailable="0" maxavailable="1">
+      <Reputation faction="separatists" min="0" />
+    </Price>
+    <Price storeidentifier="merchantresearch" minavailable="0" maxavailable="1">
+      <Reputation faction="separatists" min="0" />
+    </Price>
+    <Price storeidentifier="merchantarmory" minavailable="1" maxavailable="2">
+      <Reputation faction="separatists" min="0" />
+    </Price>
+    <!--制作-->
+    <Fabricate suitablefabricators="tsm_fabricator,fabricator" requiredtime="25" requiresrecipe="false">
+      <RequiredSkill identifier="weapons" level="50" />
+      <RequiredItem identifier="tsm_yh_weaponbox" amount="1" />
+      <RequiredItem identifier="tsm_fkj_ak74" amount="1" />
+      <RequiredItem identifier="tsm_item_box" amount="1" />
+      <RequiredItem identifier="tsm_pq" amount="1" />
+    </Fabricate>
+    <!--分解-->
+    <Deconstruct time="10">
+      <Item identifier="tsm_fkj_ak74" />
+    </Deconstruct>
+    <!--图标以及局内贴图-->
+    <InventoryIcon texture="%ModDir:2953749635%/weapons/反抗军/separatists.png" sourcerect="1406,2347,117,128" origin="0.5,0.5" />
+    <Sprite texture="%ModDir:2953749635%/weapons/反抗军/separatists.png" sourcerect="5,285,454,108" depth="0.55" origin="0.5,0.5" />
+    <Body width="454" height="108" density="52" />
+    <!--存储格子（左手右手）、控制姿势、持握距离、瞄准距离、右手位置、左手位置（左右手位置均为面向右边时的状态）、持握角度、捡起音效-->
+    <Holdable slots="Any,RightHand+LeftHand" controlpose="true" holdpos="60,-5" aimpos="60,-5" handle1="-90,-10" handle2="45,5" holdangle="-35" msg="ItemMsgPickUpSelect">
+      <!--拿手上时减速、瞄准时减速以及射击时减速-->
+      <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.9" setvalue="true" />
+      <StatusEffect type="OnSecondaryUse" target="Character" SpeedMultiplier="0.65" setvalue="true" />
+      <StatusEffect type="OnUse" target="Character" SpeedMultiplier="0.45" setvalue="true" />
+    </Holdable>
+    <!--握持坐标:握持坐标(握把到身体距离),瞄准坐标(握把到身体距离),主手位置,副手位置,闲置握持角度-->
+    <RangedWeapon reload="0.105" weapondamagemodifier="1.1" penetration="0.1" holdtrigger="true" barrelpos="230,20" spread="8" unskilledspread="85" combatPriority="85" drawhudwhenequipped="true" crosshairscale="0.25">
+      <!--准星图标-->
+      <Crosshair texture="%ModDir:2953749635%/png/crosshair.png" sourcerect="32,275,198,198" />
+      <CrosshairPointer texture="%ModDir:2953749635%/png/crosshair.png" sourcerect="32,275,198,198" />
+      <!--枪口火焰-->
+      <ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="229,221,215,255" />
+      <!--枪声-->
+      <Sound file="%ModDir:2953749635%/weapons/反抗军/ak1051.ogg" type="OnUse" range="3000" selectionmode="Random" />
+      <Sound file="%ModDir:2953749635%/weapons/反抗军/ak1052.ogg" type="OnUse" range="3000" />
+      <Sound file="%ModDir:2953749635%/weapons/反抗军/ak1053.ogg" type="OnUse" range="3000" />
+      <StatusEffect type="OnUse" target="Contained">
+        <Use />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This">
+        <Conditional Condition="eq 0" targetcontaineditem="true" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/reload7.ogg" range="2000" loop="false" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This">
+        <!--后坐力,屏幕抖动-->
+        <Explosion range="100.0" force="0.5" camerashake="25" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" />
+      </StatusEffect>
+      <!--子弹落地音效（延迟0.5s）-->
+      <StatusEffect type="OnUse" delay="0.5" target="This" forceplaysounds="true">
+        <Conditional InWater="false"/>
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete1.ogg" type="OnUse" range="1500" selectionmode="Random" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete2.ogg" type="OnUse" range="1500" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete3.ogg" type="OnUse" range="1500" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete4.ogg" type="OnUse" range="1500" />
+      </StatusEffect>
+      <!--抛弹壳-->
+      <StatusEffect type="OnUse" target="This">
+        <ParticleEmitter particle="tsm_bulletfalldown" emitinterval="2.1" particleamount="1" particlespersecond="50" anglemin="70" anglemax="100" velocitymin="100" velocitymax="200" copyentityangle="true" scalemin="2" scalemax="2" />
+      </StatusEffect>
+      <!--需要的弹匣以及武器等级-->
+      <RequiredItems items="545mag" type="Contained" msg="ItemMsgAmmoRequired" />
+      <RequiredSkill identifier="weapons" level="40" />
+      <!--动态准星-->
+      <StatusEffect type="Always" target="This" unskilledspread="-12">
+        <Conditional unskilledspread="gt 11" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" unskilledspread="+4" disabledeltatime="true" comparison="and">
+        <Conditional unskilledspread="lt 30" />
+        <Conditional CanRun="true" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" unskilledspread="+3" disabledeltatime="true" comparison="and">
+        <Conditional unskilledspread="lt 15" />
+        <Conditional CanRun="false" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" spread="-12">
+        <Conditional spread="gt 6" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" spread="+4" disabledeltatime="true" comparison="and">
+        <Conditional spread="lt 14" />
+        <Conditional CanRun="true" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" spread="+3" disabledeltatime="true" comparison="and">
+        <Conditional spread="lt 7" />
+        <Conditional CanRun="false" />
+      </StatusEffect>
+    </RangedWeapon>
+    <!--里容器-->
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="false" containedstateindicatorstyle="bullet" containedstateindicatorslot="0">
+      <!--1.弹匣-->
+      <Containable items="545mag" hide="false" itempos="2,-7" depth="0.56" setactive="true">
+      <!--换弹-->
+      <StatusEffect type="OnInserted" target="This" holdpos="20,-40" holdangle="70" maxchargetime="999" setvalue="true"/>
+      <StatusEffect type="OnInserted" target="This" setvalue="true">
+        <sound file="%ModDir%/ogg/reload2.ogg" type="OnInserted" range="500.0" loop="false" volume="1.5"/>
+      </StatusEffect>
+      <StatusEffect target="This" holdpos="60,-5" aimpos="60,-5" handle1="-90,-10" handle2="45,5" holdangle="-35" disabledeltatime="true" checkconditionalalways="true" delay="1.9" maxchargetime="0" setvalue="true">
+        <conditional maxchargetime="eq 999"/>
+      </StatusEffect>
+      </Containable>
+      <SlotIcon slotindex="0" texture="%ModDir:2953749635%/png/ui.png" sourcerect="418,202,71,50" origin="0.45,0.5" />
+      <!--2.灯-->
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable items="flashlight" hide="false" itempos="20,1" setactive="true" />
+        <SlotIcon slotindex="1" texture="Content/UI/CampaignUIAtlas2.png" sourcerect="896,536,128,64" origin="0.45,0.5" />
+      </SubContainer>
+    </ItemContainer>
+    <aitarget sightrange="2100" soundrange="3500" fadeouttime="6" />
+    <!--品质-->
+    <Quality>
+      <QualityStat stattype="FirepowerMultiplier" value="0.15" />
+    </Quality>
+    <Upgrade gameversion="0.10.0.0" scale="0.5" />
+    <!--等级提示-->
+    <SkillRequirementHint identifier="weapons" level="40" />
+  </Item>
+  <Item name="AK105(轻量化枪托)" identifier="tsm_fkj_ak105_l" subcategory="tsm_separatists" category="weapon" cargocontaineridentifier="tsm_metalcrate" tags="mediumitem,weapon,gun,gunsmith,mountableweapon,jq430cl,provocativetohumanai" scale="0.25" impactsoundtag="impact_metal_light" description="">
+    <PreferredContainer primary="secarmcab" secondary="armcab,weaponholder" />
+    <!--分解-->
+    <Deconstruct time="10">
+      <Item identifier="tsm_fkj_ak74" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="tsm_fabricator" requiredtime="20" requiresrecipe="false">
+      <RequiredSkill identifier="weapons" level="50" />
+      <RequiredItem identifier="tsm_fkj_ak105_l" amount="1" />
+      <RequiredItem identifier="tsm_yh_weaponbox" amount="1" />
+    </Fabricate>
+    <!--图标以及局内贴图-->
+    <InventoryIcon texture="%ModDir:2953749635%/weapons/反抗军/separatists.png" sourcerect="1531,2348,116,131" origin="0.5,0.5" />
+    <Sprite texture="%ModDir:2953749635%/weapons/反抗军/separatists.png" sourcerect="538,276,460,108" depth="0.55" origin="0.5,0.5" />
+    <Body width="460" height="108" density="52" />
+    <!--存储格子（左手右手）、控制姿势、持握距离、瞄准距离、右手位置、左手位置（左右手位置均为面向右边时的状态）、持握角度、捡起音效-->
+    <Holdable slots="Any,RightHand+LeftHand" controlpose="true" holdpos="60,-5" aimpos="60,-5" handle1="-90,-10" handle2="45,5" holdangle="-35" msg="ItemMsgPickUpSelect">
+      <!--拿手上时减速、瞄准时减速以及射击时减速-->
+      <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.95" setvalue="true" />
+      <StatusEffect type="OnSecondaryUse" target="Character" SpeedMultiplier="0.8" setvalue="true" />
+      <StatusEffect type="OnUse" target="Character" SpeedMultiplier="0.65" setvalue="true" />
+    </Holdable>
+    <!--握持坐标:握持坐标(握把到身体距离),瞄准坐标(握把到身体距离),主手位置,副手位置,闲置握持角度-->
+    <RangedWeapon reload="0.1" weapondamagemodifier="1.1" penetration="0.1" holdtrigger="true" barrelpos="230,20" spread="9" unskilledspread="80" combatPriority="86" drawhudwhenequipped="true" crosshairscale="0.3">
+      <!--准星图标-->
+      <Crosshair texture="%ModDir:2953749635%/png/crosshair.png" sourcerect="32,275,198,198" />
+      <CrosshairPointer texture="%ModDir:2953749635%/png/crosshair.png" sourcerect="32,275,198,198" />
+      <!--枪口火焰-->
+      <ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="229,221,215,255" />
+      <!--枪声-->
+      <Sound file="%ModDir:2953749635%/weapons/反抗军/ak1051.ogg" type="OnUse" range="3000" selectionmode="Random" />
+      <Sound file="%ModDir:2953749635%/weapons/反抗军/ak1052.ogg" type="OnUse" range="3000" />
+      <Sound file="%ModDir:2953749635%/weapons/反抗军/ak1053.ogg" type="OnUse" range="3000" />
+      <StatusEffect type="OnUse" target="Contained">
+        <Use />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This">
+        <Conditional Condition="eq 0" targetcontaineditem="true" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/reload7.ogg" range="2000" loop="false" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This">
+        <!--后坐力,屏幕抖动-->
+        <Explosion range="100.0" force="0.5" camerashake="27" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" />
+      </StatusEffect>
+      <!--子弹落地音效（延迟0.5s）-->
+      <StatusEffect type="OnUse" delay="0.5" target="This" forceplaysounds="true">
+        <Conditional InWater="false"/>
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete1.ogg" type="OnUse" range="1500" selectionmode="Random" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete2.ogg" type="OnUse" range="1500" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete3.ogg" type="OnUse" range="1500" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete4.ogg" type="OnUse" range="1500" />
+      </StatusEffect>
+      <!--抛弹壳-->
+      <StatusEffect type="OnUse" target="This">
+        <ParticleEmitter particle="tsm_bulletfalldown" emitinterval="2.1" particleamount="1" particlespersecond="50" anglemin="70" anglemax="100" velocitymin="100" velocitymax="200" copyentityangle="true" scalemin="2" scalemax="2" />
+      </StatusEffect>
+      <!--需要的弹匣以及武器等级-->
+      <RequiredItems items="545mag" type="Contained" msg="ItemMsgAmmoRequired" />
+      <RequiredSkill identifier="weapons" level="40" />
+      <!--动态准星-->
+      <StatusEffect type="Always" target="This" unskilledspread="-12">
+        <Conditional unskilledspread="gt 11" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" unskilledspread="+4" disabledeltatime="true" comparison="and">
+        <Conditional unskilledspread="lt 30" />
+        <Conditional CanRun="true" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" unskilledspread="+3" disabledeltatime="true" comparison="and">
+        <Conditional unskilledspread="lt 15" />
+        <Conditional CanRun="false" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" spread="-12">
+        <Conditional spread="gt 6" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" spread="+4" disabledeltatime="true" comparison="and">
+        <Conditional spread="lt 14" />
+        <Conditional CanRun="true" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" spread="+3" disabledeltatime="true" comparison="and">
+        <Conditional spread="lt 7" />
+        <Conditional CanRun="false" />
+      </StatusEffect>
+    </RangedWeapon>
+    <!--里容器-->
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="false" containedstateindicatorstyle="bullet" containedstateindicatorslot="0">
+    <!--1.弹匣-->
+    <Containable items="545mag" hide="false" itempos="2,-7" depth="0.56" setactive="true">
+    <!--换弹-->
+    <StatusEffect type="OnInserted" target="This" holdpos="20,-40" holdangle="70" maxchargetime="999" setvalue="true"/>
+    <StatusEffect type="OnInserted" target="This" setvalue="true">
+      <sound file="%ModDir%/ogg/reload2.ogg" type="OnInserted" range="500.0" loop="false" volume="1.5"/>
+    </StatusEffect>
+    <StatusEffect target="This" holdpos="60,-5" aimpos="60,-5" handle1="-90,-10" handle2="45,5" holdangle="-35" disabledeltatime="true" checkconditionalalways="true" delay="1.9" maxchargetime="0" setvalue="true">
+      <conditional maxchargetime="eq 999"/>
+    </StatusEffect>
+    </Containable>
+      <SlotIcon slotindex="0" texture="%ModDir:2953749635%/png/ui.png" sourcerect="418,202,71,50" origin="0.45,0.5" />
+      <!--2.灯-->
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable items="flashlight" hide="false" itempos="20,1" setactive="true" />
+        <SlotIcon slotindex="1" texture="Content/UI/CampaignUIAtlas2.png" sourcerect="896,536,128,64" origin="0.45,0.5" />
+      </SubContainer>
+    </ItemContainer>
+    <aitarget sightrange="2150" soundrange="3500" fadeouttime="6" />
+    <!--品质-->
+    <Quality>
+      <QualityStat stattype="FirepowerMultiplier" value="0.15" />
+    </Quality>
+    <Upgrade gameversion="0.10.0.0" scale="0.5" />
+    <!--等级提示-->
+    <SkillRequirementHint identifier="weapons" level="40" />
+  </Item>
+  <!--ak12-->
+  <Item name="AK12" identifier="tsm_fkj_ak12" subcategory="tsm_separatists" category="weapon" cargocontaineridentifier="tsm_metalcrate" tags="mediumitem,weapon,gun,gunsmith,mountableweapon,ak12,provocativetohumanai,bulkyweapon" scale="0.27" impactsoundtag="impact_metal_light" description="">
+    <PreferredContainer primary="secarmcab" secondary="armcab,weaponholder" />
+    <!--制作-->
+    <Fabricate suitablefabricators="tsm_fabricator" requiredtime="25" requiresrecipe="false">
+      <RequiredSkill identifier="weapons" level="30" />
+      <RequiredItem identifier="tsm_item_box" amount="1" />
+      <RequiredItem tag="jq430cl" description="fabricationdescription.jq430cl" mincondition="1" />
+      <RequiredItem identifier="tsm_yh_weaponbox" amount="2" />
+      <RequiredItem identifier="tsm_yx_crystallography" amount="1" />
+    </Fabricate>
+    <!--分解-->
+    <Deconstruct time="10">
+      <Item identifier="steel" />
+    </Deconstruct>
+    <!--图标以及局内贴图-->
+    <InventoryIcon texture="%ModDir:2953749635%/weapons/反抗军/separatists.png" sourcerect="948,2342,108,158" origin="0.5,0.5" />
+    <Sprite texture="%ModDir:2953749635%/weapons/反抗军/separatists.png" sourcerect="5,413,447,108" depth="0.55" origin="0.5,0.5" />
+    <Body width="447" height="108" density="52" />
+    <!--存储格子（左手右手）、控制姿势、持握距离、瞄准距离、右手位置、左手位置（左右手位置均为面向右边时的状态）、持握角度、捡起音效-->
+    <Holdable slots="Any,RightHand+LeftHand" controlpose="true" holdpos="63,-5" aimpos="65,-5" handle1="-100,-10" handle2="45,5" holdangle="-35" msg="ItemMsgPickUpSelect">
+      <!--拿手上时减速、瞄准时减速以及射击时减速-->
+      <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.85" setvalue="true" />
+      <StatusEffect type="OnSecondaryUse" target="Character" SpeedMultiplier="0.7" setvalue="true" />
+      <StatusEffect type="OnUse" target="Character" SpeedMultiplier="0.4" setvalue="true" />
+    </Holdable>
+    <!--握持坐标:握持坐标(握把到身体距离),瞄准坐标(握把到身体距离),主手位置,副手位置,闲置握持角度-->
+    <RangedWeapon reload="0.11" weapondamagemodifier="1.2" penetration="0.1" holdtrigger="true" barrelpos="230,20" spread="8" unskilledspread="50" combatPriority="87" drawhudwhenequipped="true" crosshairscale="0.2">
+      <!--准星图标-->
+      <Crosshair texture="%ModDir:2953749635%/png/crosshair.png" sourcerect="32,275,198,198" />
+      <CrosshairPointer texture="%ModDir:2953749635%/png/crosshair.png" sourcerect="32,275,198,198" />
+      <!--枪口火焰-->
+      <ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="229,221,215,255" />
+      <!--枪声-->
+      <Sound file="%ModDir:2953749635%/weapons/反抗军/ak121.ogg" type="OnUse" range="3000" selectionmode="Random" />
+      <Sound file="%ModDir:2953749635%/weapons/反抗军/ak122.ogg" type="OnUse" range="3000" />
+      <Sound file="%ModDir:2953749635%/weapons/反抗军/ak123.ogg" type="OnUse" range="3000" />
+      <StatusEffect type="OnUse" target="Contained">
+        <Use />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This">
+        <Conditional Condition="eq 0" targetcontaineditem="true" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/reload7.ogg" range="2000" loop="false" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This">
+        <!--后坐力,屏幕抖动-->
+        <Explosion range="100.0" force="0.6" camerashake="23" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" />
+      </StatusEffect>
+      <!--子弹落地音效（延迟0.5s）-->
+      <StatusEffect type="OnUse" delay="0.5" target="This" forceplaysounds="true">
+        <Conditional InWater="false"/>
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete1.ogg" type="OnUse" range="1500" selectionmode="Random" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete2.ogg" type="OnUse" range="1500" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete3.ogg" type="OnUse" range="1500" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete4.ogg" type="OnUse" range="1500" />
+      </StatusEffect>
+      <!--抛弹壳-->
+      <StatusEffect type="OnUse" target="This">
+        <ParticleEmitter particle="tsm_bulletfalldown" emitinterval="2.1" particleamount="1" particlespersecond="50" anglemin="70" anglemax="100" velocitymin="100" velocitymax="200" copyentityangle="true" scalemin="2" scalemax="2" />
+      </StatusEffect>
+      <!--需要的弹匣以及武器等级-->
+      <RequiredItems items="12mag" type="Contained" msg="ItemMsgAmmoRequired" />
+      <RequiredSkill identifier="weapons" level="60" />
+      <!--动态准星-->
+      <StatusEffect type="Always" target="This" unskilledspread="-13">
+        <Conditional unskilledspread="gt 10" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" unskilledspread="+3" disabledeltatime="true" comparison="and">
+        <Conditional unskilledspread="lt 35" />
+        <Conditional CanRun="true" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" unskilledspread="+3" disabledeltatime="true" comparison="and">
+        <Conditional unskilledspread="lt 20" />
+        <Conditional CanRun="false" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" spread="-13">
+        <Conditional spread="gt 6" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" spread="+3" disabledeltatime="true" comparison="and">
+        <Conditional spread="lt 15" />
+        <Conditional CanRun="true" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" spread="+3" disabledeltatime="true" comparison="and">
+        <Conditional spread="lt 10" />
+        <Conditional CanRun="false" />
+      </StatusEffect>
+    </RangedWeapon>
+    <!--里容器-->
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="false" containedstateindicatorstyle="bullet" containedstateindicatorslot="0">
+      <!-- 外观 itempos(x)-=26 -->
+      <!--1.弹匣-->
+      <Containable items="12mag" hide="false" itempos="-5,-5" depth="0.56" setactive="true">
+      <!--换弹-->
+      <StatusEffect type="OnInserted" target="This" holdpos="20,-40" holdangle="70" maxchargetime="999" setvalue="true"/>
+        <StatusEffect type="OnInserted" target="This" setvalue="true">
+      <sound file="%ModDir%/ogg/reload2.ogg" type="OnInserted" range="500.0" loop="false" volume="1.5"/>
+      </StatusEffect>
+      <StatusEffect target="This" holdpos="60,-5" aimpos="60,-5" handle1="-90,-10" handle2="45,5" holdangle="-35" disabledeltatime="true" checkconditionalalways="true" delay="2.1" maxchargetime="0" setvalue="true">
+        <conditional maxchargetime="eq 999"/>
+      </StatusEffect>
+      </Containable>
+      <SlotIcon slotindex="0" texture="%ModDir:2953749635%/png/ui.png" sourcerect="418,202,71,50" origin="0.45,0.5" />
+      <!--2.灯-->
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable items="flashlight" hide="false" itempos="20,1" setactive="true" />
+        <SlotIcon slotindex="1" texture="Content/UI/CampaignUIAtlas2.png" sourcerect="896,536,128,64" origin="0.45,0.5" />
+      </SubContainer>
+      <!--3.护木-->
+      <SubContainer capacity="1" maxstacksize="1">
+        <SlotIcon slotindex="2" texture="%ModDir:2953749635%/png/ui.png" sourcerect="638,214,18,36" origin="0.45,0.5" />
+        <Containable items="grip" hide="false" itempos="14,-2" depth="0.56" setactive="true" />
+      </SubContainer>
+    </ItemContainer>
+    <aitarget sightrange="2200" soundrange="3800" fadeouttime="6" />
+    <!--品质-->
+    <Quality>
+      <QualityStat stattype="FirepowerMultiplier" value="0.1" />
+    </Quality>
+    <Upgrade gameversion="0.10.0.0" scale="0.5" />
+    <!--等级提示-->
+    <SkillRequirementHint identifier="weapons" level="60" />
+  </Item>
+  <!--rpk-->
+  <Item name="RPK—16轻机枪" identifier="tsm_fkj_rpk16" subcategory="tsm_separatists" category="weapon" cargocontaineridentifier="tsm_metalcrate" tags="mediumitem,weapon,gun,gunsmith,mountableweapon,provocativetohumanai,bulkyweapon" scale="0.27" impactsoundtag="impact_metal_light" description="">
+    <PreferredContainer primary="secarmcab" secondary="armcab,weaponholder" />
+    <!--制作-->
+    <Fabricate suitablefabricators="tsm_fabricator" requiredtime="25" requiresrecipe="false">
+      <RequiredSkill identifier="weapons" level="30" />
+      <RequiredItem identifier="tsm_advanced_grip" amount="1" />
+      <RequiredItem identifier="tsm_hpc" amount="1" />
+      <RequiredItem tag="ak12" description="fabricationdescription.jq430cl" mincondition="1" />
+      <RequiredItem identifier="tsm_yh_weaponbox" amount="1" />
+    </Fabricate>
+    <!--分解-->
+    <Deconstruct time="10">
+      <Item identifier="tsm_hpc" />
+    </Deconstruct>
+    <!--图标以及局内贴图-->
+    <InventoryIcon texture="%ModDir:2953749635%/weapons/反抗军/separatists.png" sourcerect="1173,2067,175,192" origin="0.5,0.5" />
+    <Sprite texture="%ModDir:2953749635%/weapons/反抗军/separatists.png" sourcerect="845,1214,484,179" depth="0.55" origin="0.5,0.5" />
+    <Body width="484" height="179" density="52" />
+    <!--存储格子（左手右手）、控制姿势、持握距离、瞄准距离、右手位置、左手位置（左右手位置均为面向右边时的状态）、持握角度、捡起音效-->
+    <Holdable slots="Any,RightHand+LeftHand" controlpose="true" holdpos="60,-20" aimpos="60,-20" handle1="-130,20" handle2="50,50" holdangle="-30" msg="ItemMsgPickUpSelect">
+      <!--拿手上时减速、瞄准时减速以及射击时减速-->
+      <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.8" setvalue="true" />
+      <StatusEffect type="OnSecondaryUse" target="Character" SpeedMultiplier="0.65" setvalue="true" />
+      <StatusEffect type="OnUse" target="Character" SpeedMultiplier="0.35" setvalue="true" />
+    </Holdable>
+    <!--握持坐标:握持坐标(握把到身体距离),瞄准坐标(握把到身体距离),主手位置,副手位置,闲置握持角度-->
+    <RangedWeapon reload="0.1" weapondamagemodifier="1.35" penetration="0.1" holdtrigger="true" barrelpos="200,55" spread="8" unskilledspread="50" combatPriority="87" drawhudwhenequipped="true" crosshairscale="0.4">
+      <!--准星图标-->
+      <Crosshair texture="%ModDir:2953749635%/png/crosshair.png" sourcerect="32,275,198,198" />
+      <CrosshairPointer texture="%ModDir:2953749635%/png/crosshair.png" sourcerect="32,275,198,198" />
+      <!--枪口火焰-->
+      <ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="229,221,215,255" />
+      <!--枪声-->
+      <StatusEffect type="OnUse" target="This" forceplaysounds="true">
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/RPK.ogg" type="OnUse" range="3000"/>
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Character" disabledeltatime="true" comparison="and">
+        <Conditional skillrequirement="true" weapons="lt 70" />
+        <Conditional recoilstabilized="lte 0" />
+        <Conditional incrementalstun="lte 55" />
+        <Affliction identifier="stun" strength="0.1" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Character" disabledeltatime="true" comparison="and">
+        <Conditional skillrequirement="true" weapons="lt 50" />
+        <Conditional recoilstabilized="lte 0" />
+        <Conditional incrementalstun="lte 70" />
+        <Affliction identifier="stun" strength="0.5" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Character" disabledeltatime="true" comparison="and" setvalue="true">
+        <Conditional skillrequirement="true" weapons="lt 30" />
+        <Conditional recoilstabilized="lte 0" />
+        <Conditional incrementalstun="lte 90" />
+        <Affliction identifier="stun" strength="0.75" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Contained">
+        <Use />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This">
+        <Conditional Condition="eq 0" targetcontaineditem="true" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/reload7.ogg" range="2000" loop="false" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This">
+        <!--后坐力,屏幕抖动-->
+        <Explosion range="100.0" force="0.8" camerashake="25" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" />
+      </StatusEffect>
+      <!--子弹落地音效（延迟0.5s）-->
+      <StatusEffect type="OnUse" delay="0.5" target="This" forceplaysounds="true">
+        <Conditional InWater="false"/>
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete1.ogg" type="OnUse" range="1500" selectionmode="Random" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete2.ogg" type="OnUse" range="1500" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete3.ogg" type="OnUse" range="1500" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete4.ogg" type="OnUse" range="1500" />
+      </StatusEffect>
+      <!--抛弹壳-->
+      <StatusEffect type="OnUse" target="This">
+        <ParticleEmitter particle="tsm_bulletfalldown" emitinterval="2.1" particleamount="1" particlespersecond="50" anglemin="70" anglemax="100" velocitymin="100" velocitymax="200" copyentityangle="true" scalemin="2" scalemax="2" />
+      </StatusEffect>
+      <!--需要的弹匣以及武器等级-->
+      <RequiredItems items="rpkmag" type="Contained" msg="ItemMsgAmmoRequired" />
+      <RequiredSkill identifier="weapons" level="70" />
+      <!--动态准星-->
+      <StatusEffect type="Always" target="This" unskilledspread="-15">
+        <Conditional unskilledspread="gt 10" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" unskilledspread="+4" disabledeltatime="true" comparison="and">
+        <Conditional unskilledspread="lt 35" />
+        <Conditional CanRun="true" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" unskilledspread="+4" disabledeltatime="true" comparison="and">
+        <Conditional unskilledspread="lt 20" />
+        <Conditional CanRun="false" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" spread="-15">
+        <Conditional spread="gt 6" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" spread="+3" disabledeltatime="true" comparison="and">
+        <Conditional spread="lt 13" />
+        <Conditional CanRun="true" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" spread="+4" disabledeltatime="true" comparison="and">
+        <Conditional spread="lt 8" />
+        <Conditional CanRun="false" />
+      </StatusEffect>
+    </RangedWeapon>
+    <!--里容器-->
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="false" containedstateindicatorstyle="bullet" containedstateindicatorslot="0">
+      <!-- 外观 itempos(x)-=26 -->
+      <!--1.弹匣-->
+      <Containable items="rpkmag" hide="false" itempos="-15,2" depth="0.56" setactive="true">
+      <!--换弹-->
+      <StatusEffect type="OnInserted" target="This" holdpos="20,-40" holdangle="70" maxchargetime="999" setvalue="true"/>
+        <StatusEffect type="OnInserted" target="This" setvalue="true">
+      <sound file="%ModDir%/ogg/reload2.ogg" type="OnInserted" range="500.0" loop="false" volume="1.5"/>
+      </StatusEffect>
+      <StatusEffect target="This" holdpos="60,-20" aimpos="60,-20" handle1="-130,20" handle2="50,50" holdangle="-30" disabledeltatime="true" checkconditionalalways="true" delay="2.5" maxchargetime="0" setvalue="true">
+        <conditional maxchargetime="eq 999"/>
+      </StatusEffect>
+      </Containable>
+      <SlotIcon slotindex="0" texture="%ModDir:2953749635%/png/ui.png" sourcerect="418,202,71,50" origin="0.45,0.5" />
+      <!--2.灯-->
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable items="flashlight" hide="false" itempos="2,10" setactive="true" />
+        <SlotIcon slotindex="1" texture="Content/UI/CampaignUIAtlas2.png" sourcerect="896,536,128,64" origin="0.45,0.5" />
+      </SubContainer>
+      <!--3.瞄具-->
+      <SubContainer capacity="1" maxstacksize="1">
+        <SlotIcon slotindex="2" texture="%ModDir:2953749635%/png/ui.png" sourcerect="695,219,47,27" origin="0.45,0.5" />
+        <Containable items="sighting" hide="false" itempos="-19,25" depth="0.56" setactive="true" />
+      </SubContainer>
+      <!--4.枪口/枪管-->
+      <SubContainer capacity="1" maxstacksize="1">
+        <SlotIcon slotindex="3" texture="%ModDir:2953749635%/png/ui.png" sourcerect="517,220,82,22" origin="0.45,0.5" />
+        <Containable items="barrel" hide="false" itempos="61,15.5" containedspritedepth="0.51" Scale="0.15" setactive="true" />
+      </SubContainer>
+    </ItemContainer>
+    <aitarget sightrange="2200" soundrange="3800" fadeouttime="6" />
+    <!--品质-->
+    <Quality>
+      <QualityStat stattype="FirepowerMultiplier" value="0.1" />
+    </Quality>
+    <Upgrade gameversion="0.10.0.0" scale="0.5" />
+    <!--等级提示-->
+    <SkillRequirementHint identifier="weapons" level="70" />
+  </Item>
+  <!--sks-->
+  <Item name="西蒙诺夫步枪" identifier="tsm_fkj_sks" subcategory="tsm_separatists" category="weapon" cargocontaineridentifier="tsm_metalcrate" tags="mediumitem,weapon,gun,gunsmith,mountableweapon,provocativetohumanai,bulkyweapon" scale="0.25" impactsoundtag="impact_metal_light" description="">
+    <PreferredContainer primary="secarmcab" secondary="armcab,weaponholder" />
+    <Price baseprice="463" minleveldifficulty="20" buyingpricemultiplier="5"/>
+    <Price storeidentifier="merchantcity" minavailable="0" maxavailable="1">
+      <Reputation faction="separatists" min="0" />
+    </Price>
+    <Price storeidentifier="merchantmilitary" minavailable="0" maxavailable="1">
+      <Reputation faction="separatists" min="0" />
+    </Price>
+    <Price storeidentifier="merchantresearch" minavailable="0" maxavailable="1">
+      <Reputation faction="separatists" min="0" />
+    </Price>
+    <Price storeidentifier="merchantarmory" minavailable="1" maxavailable="2">
+      <Reputation faction="separatists" min="0" />
+    </Price>
+    <Fabricate suitablefabricators="tsm_fabricator" requiredtime="30" requiresrecipe="false">
+      <RequiredSkill identifier="weapons" level="50" />
+      <RequiredItem identifier="tsm_yh_weaponbox" amount="1" />
+      <RequiredItem identifier="tsm_plastic" amount="2" />
+      <RequiredItem identifier="aluminium" amount="2" />
+      <RequiredItem identifier="tsm_item_box" amount="2" />
+    </Fabricate>
+    <Deconstruct time="10">
+      <Item identifier="titanium" />
+    </Deconstruct>
+    <InventoryIcon texture="%ModDir:2953749635%/weapons/反抗军/separatists.png" sourcerect="635,2337,135,169" origin="0.5,0.5" />
+    <Sprite texture="%ModDir:2953749635%/weapons/反抗军/separatists.png" sourcerect="538,417,496,104" depth="0.55" origin="0.5,0.5" />
+    <Body width="496" height="104" density="52" />
+    <Holdable slots="Any,RightHand+LeftHand" controlpose="true" holdpos="60,2" aimpos="60,2" handle1="-90,-15" handle2="53,8" holdangle="-35" msg="ItemMsgPickUpSelect">
+      <!--降低移动速度-->
+      <StatusEffect type="OnSecondaryUse" target="Character" SpeedMultiplier="0.9" setvalue="true" />
+      <StatusEffect type="OnUse" target="Character" SpeedMultiplier="0.2" setvalue="true" />
+      <StatusEffect type="OnUse" target="This" ReloadTimer="1" setvalue="true">
+        <Conditional HasTag="eq tsm_bzd1" />
+      </StatusEffect>
+      <!--半自动模式-->
+    </Holdable>
+    <RangedWeapon reload="0.14" weapondamagemodifier="1.4" holdtrigger="true" barrelpos="200,30" spread="5" unskilledspread="50" combatPriority="86" drawhudwhenequipped="true" crosshairscale="0.2">
+      <Crosshair texture="%ModDir:2953749635%/png/crosshair.png" sourcerect="32,275,198,198" />
+      <CrosshairPointer texture="%ModDir:2953749635%/png/crosshair.png" sourcerect="32,275,198,198" />
+      <ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="229,221,215,255" />
+      <Sound file="%ModDir:2953749635%/weapons/反抗军/SKS.ogg" type="OnUse" range="3000" />
+      <StatusEffect type="OnUse" target="This">
+        <Explosion range="100.0" force="0.6" camerashake="30" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" delay="0.5" forceplaysounds="true">
+        <Conditional InWater="false"/>
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete1.ogg" type="OnUse" range="1500" selectionmode="Random" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete2.ogg" type="OnUse" range="1500" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete3.ogg" type="OnUse" range="1500" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete4.ogg" type="OnUse" range="1500" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Contained">
+        <Use />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This">
+        <Conditional Condition="eq 0" targetcontaineditem="true" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/reload7.ogg" range="2000" loop="false" />
+      </StatusEffect>
+      <RequiredItems items="762mag" type="Contained" msg="ItemMsgAmmoRequired" />
+      <RequiredSkill identifier="weapons" level="60" />
+      <StatusEffect type="OnUse" target="This" Tags="tsm_bzd1" setvalue="true">
+        <Conditional HasTag="eq tsm_bzd" />
+      </StatusEffect>
+      <StatusEffect type="OnSecondaryUse" target="This" comparison="And" Tags="tsm_bzd" setvalue="true">
+        <Conditional HasTag="eq tsm_bzd1" />
+        <Conditional ReloadTimer="lte 0" />
+      </StatusEffect>
+      <StatusEffect type="OnSecondaryUse" target="This" comparison="And" ReloadTimer="0" setvalue="true">
+        <Conditional HasTag="eq tsm_bzd1" />
+        <Conditional ReloadTimer="gt 0" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This">
+        <ParticleEmitter particle="tsm_bulletfalldown" emitinterval="2.1" particleamount="1" particlespersecond="50" anglemin="70" anglemax="100" velocitymin="100" velocitymax="200" copyentityangle="true" scalemin="2" scalemax="2" />
+      </StatusEffect>
+    </RangedWeapon>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="false" itempos="-12,-22" containedstateindicatorstyle="bullet" containedstateindicatorslot="0" containedspritedepth="0.56">
+      <Containable items="762mag" setactive="true">
+      <!--换弹-->
+      <StatusEffect type="OnInserted" target="This" holdpos="20,-40" holdangle="70" maxchargetime="999" setvalue="true"/>
+        <StatusEffect type="OnInserted" target="This" setvalue="true">
+      <sound file="%ModDir%/ogg/precision_reload1.ogg" type="OnInserted" range="500.0" loop="false" volume="1.5"/>
+      </StatusEffect>
+      <StatusEffect target="This" holdpos="60,2" aimpos="60,2" handle1="-90,-15" handle2="53,8" holdangle="-35" disabledeltatime="true" checkconditionalalways="true" delay="2.2" maxchargetime="0" setvalue="true">
+        <conditional maxchargetime="eq 999"/>
+      </StatusEffect>
+      </Containable>
+      <SlotIcon slotindex="0" texture="%ModDir:2953749635%/png/ui.png" sourcerect="418,202,71,50" origin="0.45,0.5" />
+      <SlotIcon slotindex="1" texture="Content/UI/CampaignUIAtlas2.png" sourcerect="896,536,128,64" origin="0.45,0.5" />
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable items="flashlight" hide="false" itempos="23,0" setactive="true" />
+      </SubContainer>
+    </ItemContainer>
+    <aitarget sightrange="2200" soundrange="3500" fadeouttime="6" />
+    <Quality>
+      <QualityStat stattype="FirepowerMultiplier" value="0.1" />
+    </Quality>
+    <CustomInterface canbeselected="true" drawhudwhenequipped="true">
+      <GuiFrame relativesize="0.08,0.1" anchor="BottomLeft" relativeoffset="0,0.31" style="ItemUI" />
+      <Button text="semi_auto">
+        <StatusEffect type="OnUse" target="This" Tags="tsm_bzd" unskilledspread="8" setvalue="true" />
+      </Button>
+      <Button text="fullauto">
+        <StatusEffect type="OnUse" target="This" Tags="" unskilledspread="15" setvalue="true" />
+      </Button>
+    </CustomInterface>
+    <Upgrade gameversion="0.10.0.0" scale="0.5" />
+    <SkillRequirementHint identifier="weapons" level="60" />
+  </Item>
+  <!--AA12-->
+  <Item name="AA12" identifier="tsm_fkj_aa12" subcategory="tsm_separatists" category="Weapon" cargocontaineridentifier="tsm_metalcrate" tags="smallitem,weapon,gun,stunner,gunsmith,mountableweapon,provocativetohumanai" Scale="0.29" impactsoundtag="impact_metal_light">
+    <PreferredContainer primary="secarmcab" secondary="armcab,weaponholder" />
+    <Price baseprice="2818" sold="true" canbespecial="false" />
+    <Fabricate suitablefabricators="tsm_fabricator" requiredtime="40">
+      <RequiredSkill identifier="weapons" level="60" />
+      <Item identifier="tsm_yh_weaponbox" amount="1" />
+      <Item identifier="tsm_item_box" amount="2" />
+      <Item identifier="autoshotgun" />
+    </Fabricate>
+    <Deconstruct time="10">
+      <Item identifier="tsm_yh_weaponbox" amount="0.5" />
+    </Deconstruct>
+    <InventoryIcon texture="%ModDir:2953749635%/weapons/反抗军/separatists.png" sourcerect="1649,2345,127,142" origin="0.5,0.5" />
+    <Sprite texture="%ModDir:2953749635%/weapons/反抗军/separatists.png" sourcerect="5,560,422,149" depth="0.55" origin="0.5,0.5" />
+    <Body width="422" height="149" density="50" />
+    <Holdable slots="Any,RightHand+LeftHand" controlpose="true" holdpos="62,0" aimpos="62,0" handle1="-85,-15" handle2="50,15" holdangle="-30" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnSecondaryUse" target="Character" SpeedMultiplier="0.9" setvalue="true" />
+      <StatusEffect type="OnUse" target="Character" SpeedMultiplier="0.6" setvalue="true">
+      </StatusEffect>
+    </Holdable>
+    <RangedWeapon barrelpos="160,8" spread="5" unskilledspread="18" combatPriority="86" reload="0.4" drawhudwhenequipped="true" crosshairscale="0.3">
+      <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
+      <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
+      <ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" />
+      <Sound file="%ModDir:2953749635%/weapons/反抗军/aa121.ogg" type="OnUse" Volume="2.7" target="This" range="3000" selectionmode="Random" />
+      <Sound file="%ModDir:2953749635%/weapons/反抗军/aa122.ogg" type="OnUse" Volume="2.7" target="This" range="3000" />
+      <StatusEffect type="OnUse" target="This">
+        <Explosion range="150.0" force="1" shockwave="false" smoke="false" flash="true" sparks="false" flames="false" underwaterbubble="false" camerashake="27" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Contained">
+        <Use />
+      </StatusEffect>
+      <RequiredItems items="fkj_aa12_mag" type="Contained" msg="ItemMsgAmmoRequired" />
+      <RequiredSkill identifier="weapons" level="60" />
+      <StatusEffect type="OnUse" target="This">
+        <ParticleEmitter particle="casingfirearm" particleamount="1" anglemin="90" anglemax="150" velocitymin="50" velocitymax="250" CopyEntityAngle="true" />
+      </StatusEffect>
+    </RangedWeapon>
+    <aitarget sightrange="2400" soundrange="4000" fadeouttime="6" />
+    <Quality>
+      <QualityStat stattype="FirepowerMultiplier" value="0.08" />
+    </Quality>
+    <Upgrade gameversion="0.10.0.0" scale="0.5" />
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="false" containedstateindicatorstyle="bullet" containedstateindicatorslot="0" containedspritedepth="0.56">
+      <Containable items="fkj_aa12_mag" hide="false" itempos="-5,-6">
+      <!--换弹-->
+      <StatusEffect type="OnInserted" target="This" holdpos="20,-40" holdangle="70" maxchargetime="999" setvalue="true"/>
+        <StatusEffect type="OnInserted" target="This" setvalue="true">
+      <sound file="%ModDir%/ogg/reload5.ogg" type="OnInserted" range="500.0" loop="false" volume="1.5"/>
+      </StatusEffect>
+      <StatusEffect target="This" holdpos="62,0" aimpos="62,0" handle1="-85,-15" handle2="50,15" holdangle="-30" disabledeltatime="true" checkconditionalalways="true" delay="1.2" maxchargetime="0" setvalue="true">
+        <conditional maxchargetime="eq 999"/>
+      </StatusEffect>
+      </Containable>
+      <SlotIcon slotindex="0" texture="%ModDir:2953749635%/png/ui.png" sourcerect="418,202,71,50" origin="0.45,0.5" />
+      <SlotIcon slotindex="1" texture="Content/UI/CampaignUIAtlas2.png" sourcerect="896,536,128,64" origin="0.5,0.45" />
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable items="flashlight" hide="false" itempos="27,0" setactive="true" />
+      </SubContainer>
+    </ItemContainer>
+    <SkillRequirementHint identifier="weapons" level="60" />
+  </Item>
+  <!--SVD-->
+  <Item name="SVD" identifier="tsm_fkj_svd" category="weapon" subcategory="tsm_separatists" cargocontaineridentifier="metalcrate" tags="mediumitem,weapon,gun,gunsmith,mountableweapon,tsm_farsight,provocativetohumanai,bulkyweapon" scale="0.23" impactsoundtag="impact_metal_light" description="">
+    <PreferredContainer primary="secarmcab" secondary="armcab,weaponholder" />
+    <Fabricate suitablefabricators="tsm_fabricator" requiredtime="40" requiresrecipe="false">
+      <RequiredSkill identifier="weapons" level="65" />
+      <RequiredItem identifier="tsm_yx_crystallography" amount="1" />
+      <RequiredItem identifier="tsm_plastic" amount="2" />
+      <RequiredItem identifier="tsm_hpc" amount="1" />
+    </Fabricate>
+    <Deconstruct time="10">
+      <Item identifier="titaniumaluminiumalloy" />
+      <Item identifier="tsm_plastic" />
+    </Deconstruct>
+    <InventoryIcon texture="%ModDir:2953749635%/weapons/反抗军/separatists.png" sourcerect="1217,2281,191,215" origin="0.5,0.5" />
+    <Sprite texture="%ModDir:2953749635%/weapons/反抗军/separatists.png" sourcerect="0,1825,702,132" depth="0.55" origin="0.5,0.5" />
+    <Body width="702" height="132" density="52" />
+    <Holdable slots="Any,RightHand+LeftHand" controlpose="true" holdpos="80,0" aimpos="85,10" handle1="-160,-25" handle2="60,10" holdangle="-45" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.6" setvalue="true" />
+      <StatusEffect type="OnSecondaryUse" target="Character" SpeedMultiplier="0.2" setvalue="true" />
+    </Holdable>
+    <Wearable limbtype="Torso" slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="true" pickkey="Select" displaycontainedstatus="true">
+      <sprite name="Backpack Wearable" texture="%ModDir:2953749635%/weapons/反抗军/separatists.png" limb="Torso" hidelimb="false" inheritlimbdepth="true" rotation="-90" inherittexturescale="false" hideotherwearables="false" sourcerect="0,1825,702,132" origin="0.45,0" scale="0.23" />
+      <StatusEffect type="OnWearing" target="Character" SpeedMultiplier="0.85" setvalue="true" disabledeltatime="true" />
+    </Wearable>
+    <RangedWeapon reload="0.45" weapondamagemodifier="1.2" penetration="0.1" holdtrigger="true" barrelpos="300,15" spread="3" unskilledspread="70" combatPriority="88" drawhudwhenequipped="true" crosshairscale="0.2">
+      <Crosshair texture="%ModDir:2953749635%/png/crosshair.png" sourcerect="32,275,198,198" />
+      <CrosshairPointer texture="%ModDir:2953749635%/png/crosshair.png" sourcerect="939,84,71,76" />
+      <ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="229,221,215,255" />
+      <Sound file="%ModDir:2953749635%/weapons/反抗军/svd1.ogg" type="OnUse" target="This" range="3000" selectionmode="Random" />
+      <Sound file="%ModDir:2953749635%/weapons/反抗军/svd2.ogg" type="OnUse" target="This" range="3000" />
+      <Sound file="%ModDir:2953749635%/weapons/反抗军/svd3.ogg" type="OnUse" target="This" range="3000" />
+      <Sound file="%ModDir:2953749635%/weapons/反抗军/svd4.ogg" type="OnUse" target="This" range="3000" />
+      <StatusEffect type="OnUse" target="This">
+        <Explosion range="100.0" force="0.6" camerashake="30" shockwave="true" smoke="false" flames="false" sparks="true" underwaterbubble="true" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Character" disabledeltatime="true" comparison="and">
+        <Conditional skillrequirement="true" weapons="lt 60" />
+        <Conditional recoilstabilized="lte 0" />
+        <Conditional incrementalstun="lte 55" />
+        <Affliction identifier="incrementalstun" strength="20" />
+        <Affliction identifier="blunttrauma" strength="5" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Character" disabledeltatime="true" comparison="and">
+        <Conditional skillrequirement="true" weapons="lt 50" />
+        <Conditional recoilstabilized="lte 0" />
+        <Conditional incrementalstun="lte 70" />
+        <Affliction identifier="incrementalstun" strength="40" />
+        <Affliction identifier="blunttrauma" strength="10" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Character" disabledeltatime="true" comparison="and" setvalue="true">
+        <Conditional skillrequirement="true" weapons="lt 40" />
+        <Conditional recoilstabilized="lte 0" />
+        <Conditional incrementalstun="lte 90" />
+        <Affliction identifier="incrementalstun" strength="50" />
+        <Affliction identifier="blunttrauma" strength="15" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Contained">
+        <Use />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This">
+        <Conditional Condition="eq 0" targetcontaineditem="true" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/reload7.ogg" range="2000" loop="false" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" delay="0.8" target="This" forceplaysounds="true">
+        <Conditional InWater="false"/>
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete1.ogg" type="OnUse" range="1500" selectionmode="Random" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete2.ogg" type="OnUse" range="1500" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete3.ogg" type="OnUse" range="1500" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete4.ogg" type="OnUse" range="1500" />
+      </StatusEffect>
+      <!--动态准星-->
+      <StatusEffect type="Always" target="This" unskilledspread="-25">
+        <Conditional unskilledspread="gt 10" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" unskilledspread="+20" disabledeltatime="true" comparison="and">
+        <Conditional unskilledspread="lt 35" />
+        <Conditional CanRun="true" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" unskilledspread="+20" disabledeltatime="true" comparison="and">
+        <Conditional unskilledspread="lt 20" />
+        <Conditional CanRun="false" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" spread="-30">
+        <Conditional spread="gt 2" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" spread="+13" disabledeltatime="true" comparison="and">
+        <Conditional spread="lt 9" />
+        <Conditional CanRun="true" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" spread="+13" disabledeltatime="true" comparison="and">
+        <Conditional spread="lt 6" />
+        <Conditional CanRun="false" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This">
+        <ParticleEmitter particle="tsm_bulletfalldown" emitinterval="2.1" particleamount="1" particlespersecond="50" anglemin="70" anglemax="100" velocitymin="100" velocitymax="200" copyentityangle="true" scalemin="3" scalemax="3" />
+      </StatusEffect>
+      <RequiredItems items="fkj_svd_mag" type="Contained" msg="ItemMsgAmmoRequired" />
+      <RequiredSkill identifier="weapons" level="85" />
+    </RangedWeapon>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="false" containedstateindicatorstyle="bullet" containedstateindicatorslot="0">
+      <SlotIcon slotindex="0" texture="%ModDir:2953749635%/png/ui.png" sourcerect="418,202,71,50" origin="0.45,0.5" />
+      <Containable items="fkj_svd_mag" hide="false" itempos="-12,-2" depth="0.56">
+      <!--换弹-->
+      <StatusEffect type="OnInserted" target="This" holdpos="20,-40" holdangle="70" maxchargetime="999" setvalue="true"/>
+        <StatusEffect type="OnInserted" target="This" setvalue="true">
+      <sound file="%ModDir%/ogg/precision_reload2.ogg" type="OnInserted" range="500.0" loop="false" volume="1.5"/>
+      </StatusEffect>
+      <StatusEffect target="This" holdpos="80,0" aimpos="85,10" handle1="-160,-25" handle2="60,10" holdangle="-45" disabledeltatime="true" checkconditionalalways="true" delay="2.55" maxchargetime="0" setvalue="true">
+        <conditional maxchargetime="eq 999"/>
+      </StatusEffect>
+      </Containable>
+    </ItemContainer>
+    <aitarget sightrange="2700" soundrange="4500" fadeouttime="6" />
+    <Quality>
+      <QualityStat stattype="FirepowerMultiplier" value="0.12" />
+    </Quality>
+    <Upgrade gameversion="0.10.0.0" scale="0.5" />
+    <SkillRequirementHint identifier="weapons" level="70" />
+  </Item>
+  <!--M2-->
+  <Item name="M2" identifier="tsm_fkj_m2" subcategory="tsm_separatists" description="" category="Weapon" cargocontaineridentifier="tsm_metalcrate" tags="bigitem,weapon,gun,gunsmith,mountableweapon,biggun,provocativetohumanai,bulkyweapon" Scale="0.27" impactsoundtag="impact_metal_light">
+    <PreferredContainer primary="secarmcab" secondary="armcab,weaponholder" />
+    <Fabricate suitablefabricators="tsm_fabricator" requiredtime="30" requiresrecipe="false">
+      <RequiredSkill identifier="weapons" level="60" />
+      <RequiredItem identifier="tsm_yx_crystallography" amount="2" />
+      <RequiredItem identifier="tsm_fkj_pkp" amount="1" />
+      <RequiredItem identifier="tsm_yh_weaponbox" amount="2" />
+      <RequiredItem identifier="tsm_plastic" amount="3" />
+    </Fabricate>
+    <Deconstruct time="10">
+      <Item identifier="tsm_fkj_jts" />
+      <Item identifier="tsm_yh_weaponbox" />
+    </Deconstruct>
+    <InventoryIcon texture="%ModDir:2953749635%/weapons/反抗军/separatists.png" sourcerect="0,2283,240,217" origin="0.5,0.5" />
+    <Sprite texture="%ModDir:2953749635%/weapons/反抗军/separatists.png" sourcerect="5,1094,761,166" depth="0.55" origin="0.5,0.5" />
+    <Body width="761" height="166" density="52" />
+    <Holdable slots="RightHand+LeftHand" controlpose="true" holdpos="70,-50" aimpos="70,-35" handle1="-330,20" handle2="35,-20" holdangle="-13" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.4" setvalue="true" />
+      <StatusEffect type="OnSecondaryUse" target="Character" SpeedMultiplier="0.2" setvalue="true" />
+    </Holdable>
+    <Wearable limbtype="Torso" slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="true" pickkey="Select" displaycontainedstatus="true">
+      <sprite name="Backpack Wearable" texture="%ModDir:2953749635%/weapons/反抗军/separatists.png" limb="Torso" hidelimb="false" inheritlimbdepth="true" rotation="90" inherittexturescale="false" hideotherwearables="false" sourcerect="5,1094,761,166" origin="0.3,1.2" scale="0.23" />
+      <StatusEffect type="OnWearing" target="Character" SpeedMultiplier="0.75" setvalue="true" disabledeltatime="true" />
+    </Wearable>
+    <RangedWeapon reload="0.1" weapondamagemodifier="1.4" penetration="0.1" holdtrigger="true" barrelpos="335,-30" spread="15" unskilledspread="50" combatPriority="90" drawhudwhenequipped="true" crosshairscale="0.35">
+      <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
+      <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
+      <ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="4.0,4.0" colormultiplier="255,200,200,200" />
+      <StatusEffect type="OnUse" target="This" forceplaysounds="true">
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/m2.ogg" type="OnUse" range="3000" loop="true" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This">
+        <Explosion range="180.0" force="0.65" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" camerashake="25" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" delay="0.5" forceplaysounds="true">
+        <Conditional InWater="false"/>
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete1.ogg" type="OnUse" range="1500" selectionmode="Random" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete2.ogg" type="OnUse" range="1500" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete3.ogg" type="OnUse" range="1500" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete4.ogg" type="OnUse" range="1500" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Character" disabledeltatime="true" comparison="and">
+        <Conditional skillrequirement="true" weapons="lt 80" />
+        <Conditional recoilstabilized="lte 0" />
+        <Conditional incrementalstun="lte 54" />
+        <Affliction identifier="incrementalstun" strength="3" />
+        <Affliction identifier="stun" strength="0.1" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Character" disabledeltatime="true" comparison="and">
+        <Conditional skillrequirement="true" weapons="lt 60" />
+        <Conditional recoilstabilized="lte 0" />
+        <Conditional incrementalstun="lte 69" />
+        <Affliction identifier="incrementalstun" strength="4" />
+        <Affliction identifier="stun" strength="0.5" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Character" disabledeltatime="true" comparison="and" setvalue="true">
+        <Conditional skillrequirement="true" weapons="lt 40" />
+        <Conditional recoilstabilized="lte 0" />
+        <Conditional incrementalstun="lte 89" />
+        <Affliction identifier="incrementalstun" strength="5" />
+        <Affliction identifier="stun" strength="0.8" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Contained">
+        <Use />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" spread="-0.1" unskilledspread="-1" disabledeltatime="true">
+        <Conditional spread="gte 0.6" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" spread="-0.1" unskilledspread="-1" disabledeltatime="true">
+        <Conditional skillrequirement="true" weapons="gte 75" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" spread="0" unskilledspread="10" setvalue="true" disabledeltatime="true">
+        <Conditional spread="lt 0.6" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" spread="23" unskilledspread="50" setvalue="true" delay="0.2" checkconditionalalways="true" disabledeltatime="true">
+        <Conditional ReloadTimer="0" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This">
+        <ParticleEmitter particle="tsm_bulletfalldown" emitinterval="2.1" particleamount="1" particlespersecond="50" anglemin="70" anglemax="100" velocitymin="100" velocitymax="200" copyentityangle="true" scalemin="2" scalemax="2" />
+      </StatusEffect>
+      <RequiredItems items="fkj_m2_mag" type="Contained" msg="ItemMsgAmmoRequired" />
+      <RequiredSkill identifier="weapons" level="80" />
+    </RangedWeapon>
+    <Propulsion force="-30" usablein="both" ApplyToHands="false">
+      <RequiredItems items="fkj_m2_mag" type="Contained" />
+    </Propulsion>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="false" containedstateindicatorslot="0" containedstateindicatorstyle="bullet" containedspritedepth="0.54">
+      <Containable items="fkj_m2_mag" hide="false" itempos="-25,-30">
+      <!--换弹-->
+      <StatusEffect type="OnInserted" target="This" holdpos="20,-40" holdangle="55" maxchargetime="999" setvalue="true"/>
+        <StatusEffect type="OnInserted" target="This" setvalue="true">
+      <sound file="%ModDir%/ogg/machinegun_reload_long.ogg" type="OnInserted" range="500.0" loop="false" volume="1.5"/>
+      </StatusEffect>
+      <StatusEffect target="This" holdpos="70,-50" aimpos="70,-35" handle1="-330,20" handle2="35,-20" holdangle="-13" disabledeltatime="true" checkconditionalalways="true" delay="5.4" maxchargetime="0" setvalue="true">
+        <conditional maxchargetime="eq 999"/>
+      </StatusEffect>
+      </Containable>
+      <SlotIcon slotindex="1" texture="Content/UI/CampaignUIAtlas2.png" sourcerect="896,536,128,64" origin="0.45,0.5" />
+    </ItemContainer>
+    <aitarget sightrange="2700" soundrange="5000" fadeouttime="5" />
+    <Quality>
+      <QualityStat stattype="FirepowerMultiplier" value="0.1" />
+    </Quality>
+    <SkillRequirementHint identifier="weapons" level="80" />
+  </Item>
+  <Item name="M2（白鹰）" identifier="tsm_fkj_m2_eagle" subcategory="tsm_separatists" description="" category="Weapon" cargocontaineridentifier="tsm_metalcrate" tags="bigitem,weapon,gun,gunsmith,mountableweapon,biggun,provocativetohumanai,bulkyweapon" Scale="0.27" impactsoundtag="impact_metal_light">
+    <PreferredContainer primary="secarmcab" secondary="armcab,weaponholder" />
+    <Fabricate suitablefabricators="tsm_fabricator" requiredtime="10" requiresrecipe="false">
+      <RequiredSkill identifier="weapons" level="60" />
+      <RequiredItem identifier="tsm_fkj_m2" amount="1" />
+      <RequiredItem identifier="tsm_pq" amount="1" />
+    </Fabricate>
+    <Deconstruct time="10">
+      <Item identifier="tsm_fkj_m2" />
+    </Deconstruct>
+    <InventoryIcon texture="%ModDir:2953749635%/weapons/反抗军/separatists.png" sourcerect="240,2280,225,220" origin="0.5,0.5" />
+    <Sprite texture="%ModDir:2953749635%/weapons/反抗军/separatists.png" sourcerect="5,1313,763,163" depth="0.55" origin="0.5,0.5" />
+    <Body width="763" height="163" density="52" />
+    <Holdable slots="RightHand+LeftHand" controlpose="true" holdpos="70,-50" aimpos="70,-35" handle1="-330,20" handle2="35,-20" holdangle="-13" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.4" setvalue="true" />
+      <StatusEffect type="OnSecondaryUse" target="Character" SpeedMultiplier="0.2" setvalue="true" />
+    </Holdable>
+    <Wearable limbtype="Torso" slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="true" pickkey="Select" displaycontainedstatus="true">
+      <sprite name="Backpack Wearable" texture="%ModDir:2953749635%/weapons/反抗军/separatists.png" limb="Torso" hidelimb="false" inheritlimbdepth="true" rotation="90" inherittexturescale="false" hideotherwearables="false" sourcerect="5,1313,763,163" origin="0.3,1.2" scale="0.23" />
+      <StatusEffect type="OnWearing" target="Character" SpeedMultiplier="0.75" setvalue="true" disabledeltatime="true" />
+    </Wearable>
+    <RangedWeapon reload="0.1" weapondamagemodifier="1.4" penetration="0.1" holdtrigger="true" barrelpos="335,-30" spread="15" unskilledspread="50" combatPriority="90" drawhudwhenequipped="true" crosshairscale="0.35">
+      <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
+      <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
+      <ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="4.0,4.0" colormultiplier="255,200,200,200" />
+      <StatusEffect type="OnUse" target="This" forceplaysounds="true">
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/m2.ogg" type="OnUse" range="3000" loop="true" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This">
+        <Explosion range="180.0" force="0.65" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" camerashake="25" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" delay="0.5" forceplaysounds="true">
+        <Conditional InWater="false"/>
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete1.ogg" type="OnUse" range="1500" selectionmode="Random" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete2.ogg" type="OnUse" range="1500" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete3.ogg" type="OnUse" range="1500" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete4.ogg" type="OnUse" range="1500" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Character" disabledeltatime="true" comparison="and">
+        <Conditional skillrequirement="true" weapons="lt 80" />
+        <Conditional recoilstabilized="lte 0" />
+        <Conditional incrementalstun="lte 54" />
+        <Affliction identifier="incrementalstun" strength="3" />
+        <Affliction identifier="stun" strength="0.1" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Character" disabledeltatime="true" comparison="and">
+        <Conditional skillrequirement="true" weapons="lt 60" />
+        <Conditional recoilstabilized="lte 0" />
+        <Conditional incrementalstun="lte 69" />
+        <Affliction identifier="incrementalstun" strength="4" />
+        <Affliction identifier="stun" strength="0.5" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Character" disabledeltatime="true" comparison="and" setvalue="true">
+        <Conditional skillrequirement="true" weapons="lt 40" />
+        <Conditional recoilstabilized="lte 0" />
+        <Conditional incrementalstun="lte 89" />
+        <Affliction identifier="incrementalstun" strength="5" />
+        <Affliction identifier="stun" strength="0.8" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Contained">
+        <Use />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" spread="-0.1" unskilledspread="-1" disabledeltatime="true">
+        <Conditional spread="gte 0.6" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" spread="-0.1" unskilledspread="-1" disabledeltatime="true">
+        <Conditional skillrequirement="true" weapons="gte 75" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" spread="0" unskilledspread="10" setvalue="true" disabledeltatime="true">
+        <Conditional spread="lt 0.6" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" spread="23" unskilledspread="50" setvalue="true" delay="0.2" checkconditionalalways="true" disabledeltatime="true">
+        <Conditional ReloadTimer="0" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This">
+        <ParticleEmitter particle="tsm_bulletfalldown" emitinterval="2.1" particleamount="1" particlespersecond="50" anglemin="70" anglemax="100" velocitymin="100" velocitymax="200" copyentityangle="true" scalemin="2" scalemax="2" />
+      </StatusEffect>
+      <RequiredItems items="fkj_m2_mag" type="Contained" msg="ItemMsgAmmoRequired" />
+      <RequiredSkill identifier="weapons" level="80" />
+    </RangedWeapon>
+    <Propulsion force="-30" usablein="both" ApplyToHands="false">
+      <RequiredItems items="fkj_m2_mag" type="Contained" />
+    </Propulsion>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="false" containedstateindicatorslot="0" containedstateindicatorstyle="bullet" containedspritedepth="0.54">
+      <Containable items="fkj_m2_mag" hide="false" itempos="-25,-30">
+      <!--换弹-->
+      <StatusEffect type="OnInserted" target="This" holdpos="20,-40" holdangle="55" maxchargetime="999" setvalue="true"/>
+        <StatusEffect type="OnInserted" target="This" setvalue="true">
+      <sound file="%ModDir%/ogg/machinegun_reload_long.ogg" type="OnInserted" range="500.0" loop="false" volume="1.5"/>
+      </StatusEffect>
+      <StatusEffect target="This" holdpos="70,-50" aimpos="70,-35" handle1="-330,20" handle2="35,-20" holdangle="-13" disabledeltatime="true" checkconditionalalways="true" delay="5.4" maxchargetime="0" setvalue="true">
+        <conditional maxchargetime="eq 999"/>
+      </StatusEffect>
+      </Containable>
+      <SlotIcon slotindex="1" texture="Content/UI/CampaignUIAtlas2.png" sourcerect="896,536,128,64" origin="0.45,0.5" />
+    </ItemContainer>
+    <aitarget sightrange="2700" soundrange="5000" fadeouttime="5" />
+    <Quality>
+      <QualityStat stattype="FirepowerMultiplier" value="0.11" />
+    </Quality>
+    <SkillRequirementHint identifier="weapons" level="80" />
+  </Item>
+  <!--通用机枪-->
+  <Item name="反抗军通用轻型机枪" identifier="tsm_fkj_jts" subcategory="tsm_separatists" category="Weapon" cargocontaineridentifier="tsm_metalcrate" tags="mediumitem,weapon,gun,gunsmith,mountableweapon,tsm_gun,provocativetohumanai,bulkyweapon" Scale="0.23" impactsoundtag="impact_metal_light">
+    <PreferredContainer primary="secarmcab" secondary="armcab,weaponholder" />
+    <PreferredContainer primary="secarmcab" minamount="0" maxamount="1" spawnprobability="0.15" />
+    <PreferredContainer primary="wrecksecarmcab" minamount="0" maxamount="1" spawnprobability="0.12" />
+    <PreferredContainer primary="abandonedsecarmcab" minamount="1" maxamount="2" spawnprobability="0.1" />
+    <PreferredContainer primary="armcab" secondary="locker" />
+    <Price baseprice="412" soldeverywhere="false" buyingpricemultiplier="5">
+      <Price locationtype="city" minavailable="1" />
+      <Price locationtype="research" sold="false" />
+      <Price locationtype="military" minavailable="1" />
+    </Price>
+    <Fabricate suitablefabricators="tsm_fabricator,fabricator" requiredtime="43" requiresrecipe="false">
+      <RequiredSkill identifier="weapons" level="50" />
+      <RequiredItem identifier="tsm_yh_weaponbox" amount="1" />
+      <RequiredItem identifier="plastic" amount="2" />
+      <RequiredItem identifier="tsm_item_box" amount="2" />
+    </Fabricate>
+    <Deconstruct time="10">
+      <Item identifier="plastic" amount="1" />
+      <Item identifier="tsm_item_box" amount="0.5" />
+    </Deconstruct>
+    <InventoryIcon texture="%ModDir:2953749635%/weapons/反抗军/separatists.png" sourcerect="465,2337,147,165" origin="0.5,0.5" />
+    <Sprite texture="%ModDir:2953749635%/weapons/反抗军/separatists.png" sourcerect="12,904,575,159" depth="0.55" origin="0.5,0.5" />
+    <Body width="575" height="159" density="52" />
+    <Holdable slots="RightHand+LeftHand" controlpose="true" holdpos="70,-10" aimpos="73,-10" handle1="-140,-30" handle2="60,0" holdangle="-35" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.7" setvalue="true" />
+      <StatusEffect type="OnSecondaryUse" target="Character" SpeedMultiplier="0.3" setvalue="true" />
+      <StatusEffect type="OnUse" target="Character" SpeedMultiplier="0.2" setvalue="true" />
+    </Holdable>
+    <Wearable limbtype="Torso" slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="true" pickkey="Select" displaycontainedstatus="true">
+      <sprite name="Backpack Wearable" texture="%ModDir:2953749635%/weapons/反抗军/separatists.png" limb="Torso" hidelimb="false" inheritlimbdepth="true" rotation="-90" inherittexturescale="false" hideotherwearables="false" sourcerect="12,904,575,159" origin="0.45,0" scale="0.24" />
+      <StatusEffect type="OnWearing" target="Character" SpeedMultiplier="0.85" setvalue="true" disabledeltatime="true" />
+    </Wearable>
+    <RangedWeapon reload="0.1" weapondamagemodifier="1.1" holdtrigger="true" barrelpos="280,5" spread="25" unskilledspread="100" combatPriority="86" drawhudwhenequipped="true" crosshairscale="0.3">
+      <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
+      <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
+      <ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="4.0,4.0" colormultiplier="255,200,200,200" />
+      <StatusEffect type="OnUse" target="This" forceplaysounds="true">
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/mg.ogg" type="OnUse" range="3000" loop="true" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This">
+        <Explosion range="180.0" force="0.65" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" camerashake="22" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" delay="0.5" forceplaysounds="true">
+        <Conditional InWater="false"/>
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete1.ogg" type="OnUse" range="1500" selectionmode="Random" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete2.ogg" type="OnUse" range="1500" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete3.ogg" type="OnUse" range="1500" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete4.ogg" type="OnUse" range="1500" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Character" disabledeltatime="true" comparison="and">
+        <Conditional skillrequirement="true" weapons="lt 50" />
+        <Conditional recoilstabilized="lte 0" />
+        <Conditional incrementalstun="lte 54" />
+        <Affliction identifier="incrementalstun" strength="2" />
+        <Affliction identifier="stun" strength="0.1" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Character" disabledeltatime="true" comparison="and">
+        <Conditional skillrequirement="true" weapons="lt 35" />
+        <Conditional recoilstabilized="lte 0" />
+        <Conditional incrementalstun="lte 69" />
+        <Affliction identifier="incrementalstun" strength="3" />
+        <Affliction identifier="stun" strength="0.5" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Character" disabledeltatime="true" comparison="and" setvalue="true">
+        <Conditional skillrequirement="true" weapons="lt 25" />
+        <Conditional recoilstabilized="lte 0" />
+        <Conditional incrementalstun="lte 89" />
+        <Affliction identifier="incrementalstun" strength="4" />
+        <Affliction identifier="stun" strength="0.8" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Contained">
+        <Use />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This">
+        <Conditional Condition="eq 0" targetcontaineditem="true" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/reload7.ogg" range="2000" loop="false" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" spread="-0.1" unskilledspread="-1" disabledeltatime="true">
+        <Conditional spread="gte 0.6" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" spread="-0.1" unskilledspread="-1" disabledeltatime="true">
+        <Conditional skillrequirement="true" weapons="gte 75" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" spread="0" unskilledspread="10" setvalue="true" disabledeltatime="true">
+        <Conditional spread="lt 0.6" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" spread="25" unskilledspread="50" setvalue="true" delay="0.2" checkconditionalalways="true" disabledeltatime="true">
+        <Conditional ReloadTimer="0" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This">
+        <ParticleEmitter particle="tsm_bulletfalldown" emitinterval="2.1" particleamount="1" particlespersecond="50" anglemin="70" anglemax="100" velocitymin="100" velocitymax="200" copyentityangle="true" scalemin="2" scalemax="2" />
+      </StatusEffect>
+      <RequiredItems items="fkj_jts_mag" type="Contained" msg="ItemMsgAmmoRequired" />
+      <RequiredSkill identifier="weapons" level="50" />
+    </RangedWeapon>
+    <Propulsion force="-30" usablein="both" ApplyToHands="false">
+      <RequiredItems items="fkj_jts_mag" type="Contained" />
+    </Propulsion>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="false" containedstateindicatorstyle="bullet" containedstateindicatorslot="0">
+      <SlotIcon slotindex="0" texture="%ModDir:2953749635%/png/ui.png" sourcerect="418,202,71,50" origin="0.45,0.5" />
+      <Containable items="fkj_jts_mag" hide="false" itempos="-16,-15" depth="0.56">
+      <!--换弹-->
+      <StatusEffect type="OnInserted" target="This" holdpos="20,-40" holdangle="70" maxchargetime="999" setvalue="true"/>
+        <StatusEffect type="OnInserted" target="This" setvalue="true">
+      <sound file="%ModDir%/ogg/machinegun_reload_mid.ogg" type="OnInserted" range="500.0" loop="false" volume="1.5"/>
+      </StatusEffect>
+      <StatusEffect target="This" holdpos="70,-50" aimpos="70,-35" handle1="-330,20" handle2="35,-20" holdangle="-13" disabledeltatime="true" checkconditionalalways="true" delay="5.4" maxchargetime="0" setvalue="true">
+        <conditional maxchargetime="eq 999"/>
+      </StatusEffect>
+      </Containable>
+    </ItemContainer>
+    <aitarget sightrange="2400" soundrange="4500" fadeouttime="5" />
+    <Quality>
+      <QualityStat stattype="FirepowerMultiplier" value="0.1" />
+    </Quality>
+    <SkillRequirementHint identifier="weapons" level="50" />
+  </Item>
+  <!--反抗军通用机枪-->
+  <Item name="反抗军通用机枪（PKP）" identifier="tsm_fkj_pkp" subcategory="tsm_separatists" category="Weapon" cargocontaineridentifier="tsm_metalcrate" tags="mediumitem,weapon,gun,gunsmith,mountableweapon,tsm_gun,provocativetohumanai,bulkyweapon" Scale="0.27" impactsoundtag="impact_metal_light">
+    <PreferredContainer primary="secarmcab" secondary="armcab,weaponholder" />
+    <Fabricate suitablefabricators="tsm_fabricator" requiredtime="43" requiresrecipe="false">
+      <RequiredSkill identifier="weapons" level="50" />
+      <RequiredItem identifier="tsm_yh_weaponbox" amount="2" />
+      <RequiredItem identifier="tsm_fkj_jts" amount="1" />
+      <RequiredItem identifier="tsm_advanced_grip" amount="1" />
+      <RequiredItem identifier="tsm_yx_crystallography" amount="2" />
+    </Fabricate>
+    <Deconstruct time="10">
+      <Item identifier="tsm_advanced_grip" amount="1" />
+      <Item identifier="tsm_yh_weaponbox" amount="0.5" />
+    </Deconstruct>
+    <InventoryIcon texture="%ModDir:2953749635%/weapons/反抗军/separatists.png" sourcerect="441,2045,175,189" origin="0.5,0.5" />
+    <Sprite texture="%ModDir:2953749635%/weapons/反抗军/separatists.png" sourcerect="764,1028,599,111" depth="0.55" origin="0.5,0.5" />
+    <Body width="599" height="111" density="52" />
+    <Holdable slots="RightHand+LeftHand" controlpose="true" holdpos="50,-60" aimpos="75,-5" handle1="-120,-30" handle2="60,0" holdangle="40" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.7" setvalue="true" />
+      <StatusEffect type="OnSecondaryUse" target="Character" SpeedMultiplier="0.3" setvalue="true" />
+      <StatusEffect type="OnUse" target="Character" SpeedMultiplier="0.2" setvalue="true" />
+    </Holdable>
+    <Wearable limbtype="Torso" slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="true" pickkey="Select" displaycontainedstatus="true">
+      <sprite name="Backpack Wearable" texture="%ModDir:2953749635%/weapons/反抗军/separatists.png" limb="Torso" hidelimb="false" inheritlimbdepth="true" rotation="-90" inherittexturescale="false" hideotherwearables="false" sourcerect="764,1028,599,111" origin="0.45,-0.3" scale="0.27" />
+      <StatusEffect type="OnWearing" target="Character" SpeedMultiplier="0.85" setvalue="true" disabledeltatime="true" />
+    </Wearable>
+    <RangedWeapon reload="0.1" weapondamagemodifier="1" holdtrigger="true" barrelpos="280,5" spread="23" unskilledspread="100" combatPriority="86" drawhudwhenequipped="true" crosshairscale="0.3">
+      <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
+      <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
+      <ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="4.0,4.0" colormultiplier="255,200,200,200" />
+      <StatusEffect type="OnUse" target="This" forceplaysounds="true">
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/pkp.ogg" type="OnUse" range="3000" loop="true" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This">
+        <Explosion range="180.0" force="0.7" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" camerashake="25" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" delay="0.5" forceplaysounds="true">
+        <Conditional InWater="false"/>
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete1.ogg" type="OnUse" range="1500" selectionmode="Random" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete2.ogg" type="OnUse" range="1500" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete3.ogg" type="OnUse" range="1500" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete4.ogg" type="OnUse" range="1500" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Character" disabledeltatime="true" comparison="and">
+        <Conditional skillrequirement="true" weapons="lt 50" />
+        <Conditional recoilstabilized="lte 0" />
+        <Conditional incrementalstun="lte 54" />
+        <Affliction identifier="incrementalstun" strength="2" />
+        <Affliction identifier="stun" strength="0.1" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Character" disabledeltatime="true" comparison="and">
+        <Conditional skillrequirement="true" weapons="lt 35" />
+        <Conditional recoilstabilized="lte 0" />
+        <Conditional incrementalstun="lte 69" />
+        <Affliction identifier="incrementalstun" strength="3" />
+        <Affliction identifier="stun" strength="0.5" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Character" disabledeltatime="true" comparison="and" setvalue="true">
+        <Conditional skillrequirement="true" weapons="lt 25" />
+        <Conditional recoilstabilized="lte 0" />
+        <Conditional incrementalstun="lte 89" />
+        <Affliction identifier="incrementalstun" strength="4" />
+        <Affliction identifier="stun" strength="0.8" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Contained">
+        <Use />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This">
+        <Conditional Condition="eq 0" targetcontaineditem="true" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/reload7.ogg" range="2000" loop="false" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" spread="-0.1" unskilledspread="-1" disabledeltatime="true">
+        <Conditional spread="gte 0.6" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" spread="-0.1" unskilledspread="-1" disabledeltatime="true">
+        <Conditional skillrequirement="true" weapons="gte 75" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" spread="0" unskilledspread="10" setvalue="true" disabledeltatime="true">
+        <Conditional spread="lt 0.6" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" spread="23" unskilledspread="50" setvalue="true" delay="0.2" checkconditionalalways="true" disabledeltatime="true">
+        <Conditional ReloadTimer="0" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This">
+        <ParticleEmitter particle="tsm_bulletfalldown" emitinterval="2.1" particleamount="1" particlespersecond="50" anglemin="70" anglemax="100" velocitymin="100" velocitymax="200" copyentityangle="true" scalemin="2" scalemax="2" />
+      </StatusEffect>
+      <RequiredItems items="fkj_pkp_mag" type="Contained" msg="ItemMsgAmmoRequired" />
+      <RequiredSkill identifier="weapons" level="50" />
+    </RangedWeapon>
+    <Propulsion force="-30" usablein="both" ApplyToHands="false">
+      <RequiredItems items="fkj_pkp_mag" type="Contained" />
+    </Propulsion>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="false" containedstateindicatorstyle="bullet" containedstateindicatorslot="0">
+      <SlotIcon slotindex="0" texture="%ModDir:2953749635%/png/ui.png" sourcerect="418,202,71,50" origin="0.45,0.5" />
+      <Containable items="fkj_pkp_mag" hide="false" itempos="-8,-7" depth="0.54">
+      <!--换弹-->
+      <StatusEffect type="OnInserted" target="This" holdpos="20,-40" holdangle="70" maxchargetime="999" setvalue="true"/>
+        <StatusEffect type="OnInserted" target="This" setvalue="true">
+      <sound file="%ModDir%/ogg/machinegun_reload_mid.ogg" type="OnInserted" range="500.0" loop="false" volume="1.5"/>
+      </StatusEffect>
+      <StatusEffect target="This" holdpos="50,-60" aimpos="75,-5" handle1="-120,-30" handle2="60,0" holdangle="40" disabledeltatime="true" checkconditionalalways="true" delay="5.1" maxchargetime="0" setvalue="true">
+        <conditional maxchargetime="eq 999"/>
+      </StatusEffect>
+      </Containable>
+      <SlotIcon slotindex="1" texture="Content/UI/CampaignUIAtlas2.png" sourcerect="896,536,128,64" origin="0.45,0.5" />
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable items="flashlight" hide="false" itempos="28,1" depth="0.56" setactive="true" />
+      </SubContainer>
+    </ItemContainer>
+    <aitarget sightrange="2400" soundrange="4500" fadeouttime="5" />
+    <Quality>
+      <QualityStat stattype="FirepowerMultiplier" value="0.1" />
+    </Quality>
+    <SkillRequirementHint identifier="weapons" level="50" />
+  </Item>
+  <!--加利尔-->
+  <Item name="反抗军加利尔ACE52战斗步枪" identifier="tsm_fkj_ace52" subcategory="tsm_separatists" category="weapon" cargocontaineridentifier="tsm_metalcrate" tags="mediumitem,weapon,gun,gunsmith,mountableweapon,provocativetohumanai,bulkyweapon" scale="0.27" impactsoundtag="impact_metal_light" description="">
+    <PreferredContainer primary="secarmcab" secondary="armcab,weaponholder" />
+    <Fabricate suitablefabricators="tsm_fabricator" requiredtime="30" requiresrecipe="false">
+      <RequiredSkill identifier="weapons" level="30" />
+      <RequiredItem identifier="tsm_item_box" amount="1" />
+      <RequiredItem identifier="tsm_yh_weaponbox" amount="1" />
+      <RequiredItem identifier="tsm_plastic" amount="3" />
+    </Fabricate>
+    <Deconstruct time="10">
+      <Item identifier="tsm_yh_weaponbox" />
+    </Deconstruct>
+    <InventoryIcon texture="%ModDir:2953749635%/weapons/反抗军/separatists.png" sourcerect="1616,2099,142,157" origin="0.5,0.5" />
+    <Sprite texture="%ModDir:2953749635%/weapons/反抗军/separatists.png" sourcerect="1039,1,492,126" depth="0.55" origin="0.5,0.5" />
+    <Body width="447" height="108" density="52" />
+    <Holdable slots="Any,RightHand+LeftHand" controlpose="true" holdpos="63,-5" aimpos="65,-5" handle1="-100,-10" handle2="45,5" holdangle="-35" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.8" setvalue="true" />
+      <StatusEffect type="OnSecondaryUse" target="Character" SpeedMultiplier="0.7" setvalue="true" />
+      <StatusEffect type="OnUse" target="Character" SpeedMultiplier="0.4" setvalue="true" />
+    </Holdable>
+    <RangedWeapon reload="0.155" penetration="0.25" holdtrigger="true" barrelpos="230,20" spread="15" unskilledspread="50" combatPriority="87" drawhudwhenequipped="true" crosshairscale="0.2">
+      <Crosshair texture="%ModDir:2953749635%/png/crosshair.png" sourcerect="32,275,198,198" />
+      <CrosshairPointer texture="%ModDir:2953749635%/png/crosshair.png" sourcerect="32,275,198,198" />
+      <ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="229,221,215,255" />
+      <StatusEffect type="OnUse" target="This" forceplaysounds="True">
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/ace1.ogg" type="OnUse" range="3000" selectionmode="Random" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/ace2.ogg" type="OnUse" range="3000" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Contained">
+        <Use />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This">
+        <Conditional Condition="eq 0" targetcontaineditem="true" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/reload7.ogg" range="2000" loop="false" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This">
+        <Explosion range="100.0" force="1" camerashake="23" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" delay="0.5" target="This" forceplaysounds="true">
+        <Conditional InWater="false"/>
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete1.ogg" type="OnUse" range="1500" selectionmode="Random" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete2.ogg" type="OnUse" range="1500" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete3.ogg" type="OnUse" range="1500" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete4.ogg" type="OnUse" range="1500" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This">
+        <ParticleEmitter particle="tsm_bulletfalldown" emitinterval="2.1" particleamount="1" particlespersecond="50" anglemin="70" anglemax="100" velocitymin="100" velocitymax="200" copyentityangle="true" scalemin="2" scalemax="2" />
+      </StatusEffect>
+      <!--动态准星-->
+      <StatusEffect type="Always" target="This" unskilledspread="-25">
+        <Conditional unskilledspread="gt 17" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" unskilledspread="+15" disabledeltatime="true" comparison="and">
+        <Conditional unskilledspread="lt 35" />
+        <Conditional CanRun="true" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" unskilledspread="+15" disabledeltatime="true" comparison="and">
+        <Conditional unskilledspread="lt 25" />
+        <Conditional CanRun="false" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" spread="-35">
+        <Conditional spread="gt 12" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" spread="+6" disabledeltatime="true" comparison="and">
+        <Conditional spread="lt 18" />
+        <Conditional CanRun="true" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" spread="+4" disabledeltatime="true" comparison="and">
+        <Conditional spread="lt 14" />
+        <Conditional CanRun="false" />
+      </StatusEffect>
+      <RequiredItems items="762_51mag" type="Contained" msg="ItemMsgAmmoRequired" />
+      <RequiredSkill identifier="weapons" level="65" />
+    </RangedWeapon>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="false" containedstateindicatorstyle="bullet" containedstateindicatorslot="0">
+      <!-- 外观 itempos(x)-=26 -->
+      <!--1.弹匣-->
+      <Containable items="762_51mag" hide="false" itempos="-9,-5" depth="0.56" setactive="true">
+      <!--换弹-->
+      <StatusEffect type="OnInserted" target="This" holdpos="20,-40" holdangle="70" maxchargetime="999" setvalue="true"/>
+        <StatusEffect type="OnInserted" target="This" setvalue="true">
+      <sound file="%ModDir%/ogg/reload1.ogg" type="OnInserted" range="500.0" loop="false" volume="1.5"/>
+      </StatusEffect>
+      <StatusEffect target="This" holdpos="63,-5" aimpos="65,-5" handle1="-100,-10" handle2="45,5" holdangle="-35" disabledeltatime="true" checkconditionalalways="true" delay="2" maxchargetime="0" setvalue="true">
+        <conditional maxchargetime="eq 999"/>
+      </StatusEffect>
+      </Containable>
+      <SlotIcon slotindex="0" texture="%ModDir:2953749635%/png/ui.png" sourcerect="418,202,71,50" origin="0.45,0.5" />
+      <!--2.灯-->
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable items="flashlight" hide="false" itempos="17,1" setactive="true" />
+        <SlotIcon slotindex="1" texture="Content/UI/CampaignUIAtlas2.png" sourcerect="896,536,128,64" origin="0.45,0.5" />
+      </SubContainer>
+      <!--3.护木-->
+      <SubContainer capacity="1" maxstacksize="1">
+        <SlotIcon slotindex="2" texture="%ModDir:2953749635%/png/ui.png" sourcerect="638,214,18,36" origin="0.45,0.5" />
+        <Containable items="tsm_advanced_grip" hide="false" itempos="40,-5" depth="0.56" setactive="true" />
+      </SubContainer>
+      <SubContainer capacity="1" maxstacksize="1">
+        <SlotIcon slotindex="3" texture="%ModDir:2953749635%/png/ui.png" sourcerect="517,220,82,22" origin="0.45,0.5" />
+        <Containable items="barrel" hide="false" itempos="65,6.5" containedspritedepth="0.51" Scale="0.20" setactive="true" />
+      </SubContainer>
+    </ItemContainer>
+    <aitarget sightrange="2200" soundrange="3800" fadeouttime="6" />
+    <!--品质-->
+    <Quality>
+      <QualityStat stattype="FirepowerMultiplier" value="0.1" />
+    </Quality>
+    <Upgrade gameversion="0.10.0.0" scale="0.5" />
+    <!--等级提示-->
+    <SkillRequirementHint identifier="weapons" level="65" />
+  </Item>
+  <!--G3A4-->
+  <Item name="反抗军G3A4站斗步枪" identifier="tsm_fkj_g3a4" subcategory="tsm_separatists" category="weapon" cargocontaineridentifier="tsm_metalcrate" tags="mediumitem,weapon,gun,gunsmith,mountableweapon,provocativetohumanai,bulkyweapon" scale="0.27" impactsoundtag="impact_metal_light" description="">
+    <PreferredContainer primary="secarmcab" secondary="armcab,weaponholder" />
+    <Fabricate suitablefabricators="tsm_fabricator" requiredtime="30" requiresrecipe="false">
+      <RequiredSkill identifier="weapons" level="30" />
+      <RequiredItem identifier="tsm_item_box" amount="2" />
+      <RequiredItem identifier="tsm_yh_weaponbox" amount="1" />
+      <RequiredItem identifier="tsm_plastic" amount="1" />
+    </Fabricate>
+    <Deconstruct time="10">
+      <Item identifier="tsm_yh_weaponbox" />
+    </Deconstruct>
+    <InventoryIcon texture="%ModDir:2953749635%/weapons/反抗军/separatists.png" sourcerect="1814,2108,137,142" origin="0.5,0.5" />
+    <Sprite texture="%ModDir:2953749635%/weapons/反抗军/separatists.png" sourcerect="1087,153,469,108" depth="0.55" origin="0.5,0.5" />
+    <Body width="447" height="108" density="52" />
+    <Holdable slots="Any,RightHand+LeftHand" controlpose="true" holdpos="63,-5" aimpos="65,-5" handle1="-100,-10" handle2="45,5" holdangle="-35" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.8" setvalue="true" />
+      <StatusEffect type="OnSecondaryUse" target="Character" SpeedMultiplier="0.75" setvalue="true" />
+      <StatusEffect type="OnUse" target="Character" SpeedMultiplier="0.5" setvalue="true" />
+    </Holdable>
+    <RangedWeapon reload="0.155" holdtrigger="true" barrelpos="215,20" spread="7" unskilledspread="50" combatPriority="87" drawhudwhenequipped="true" crosshairscale="0.2">
+      <Crosshair texture="%ModDir:2953749635%/png/crosshair.png" sourcerect="32,275,198,198" />
+      <CrosshairPointer texture="%ModDir:2953749635%/png/crosshair.png" sourcerect="32,275,198,198" />
+      <ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="229,221,215,255" />
+      <StatusEffect type="OnUse" target="This" forceplaysounds="True">
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/G31.ogg" type="OnUse" range="3000" selectionmode="Random" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/G32.ogg" type="OnUse" range="3000" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Contained">
+        <Use />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This">
+        <Conditional Condition="eq 0" targetcontaineditem="true" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/reload7.ogg" range="2000" loop="false" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This">
+        <Explosion range="100.0" force="1" camerashake="23" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" delay="0.5" target="This" forceplaysounds="true">
+        <Conditional InWater="false"/>
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete1.ogg" type="OnUse" range="1500" selectionmode="Random" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete2.ogg" type="OnUse" range="1500" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete3.ogg" type="OnUse" range="1500" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete4.ogg" type="OnUse" range="1500" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This">
+        <ParticleEmitter particle="tsm_bulletfalldown" emitinterval="2.1" particleamount="1" particlespersecond="50" anglemin="70" anglemax="100" velocitymin="100" velocitymax="200" copyentityangle="true" scalemin="2" scalemax="2" />
+      </StatusEffect>
+      <!--动态准星-->
+      <StatusEffect type="Always" target="This" unskilledspread="-20">
+        <Conditional unskilledspread="gt 10" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" unskilledspread="+6" disabledeltatime="true" comparison="and">
+        <Conditional unskilledspread="lt 30" />
+        <Conditional CanRun="true" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" unskilledspread="+6" disabledeltatime="true" comparison="and">
+        <Conditional unskilledspread="lt 20" />
+        <Conditional CanRun="false" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" spread="-25">
+        <Conditional spread="gt 5" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" spread="+5" disabledeltatime="true" comparison="and">
+        <Conditional spread="lt 15" />
+        <Conditional CanRun="true" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" spread="+4" disabledeltatime="true" comparison="and">
+        <Conditional spread="lt 8" />
+        <Conditional CanRun="false" />
+      </StatusEffect>
+      <RequiredItems items="762_51mag" type="Contained" msg="ItemMsgAmmoRequired" />
+      <RequiredSkill identifier="weapons" level="65" />
+    </RangedWeapon>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="false" containedstateindicatorstyle="bullet" containedstateindicatorslot="0">
+      <!-- 外观 itempos(x)-=26 -->
+      <!--1.弹匣-->
+      <Containable items="762_51mag" hide="false" itempos="-6,-5" depth="0.56" setactive="true">
+      <!--换弹-->
+      <StatusEffect type="OnInserted" target="This" holdpos="20,-40" holdangle="70" maxchargetime="999" setvalue="true"/>
+        <StatusEffect type="OnInserted" target="This" setvalue="true">
+      <sound file="%ModDir%/ogg/reload6.ogg" type="OnInserted" range="500.0" loop="false" volume="1.5"/>
+      </StatusEffect>
+      <StatusEffect target="This" holdpos="63,-5" aimpos="65,-5" handle1="-100,-10" handle2="45,5" holdangle="-35" disabledeltatime="true" checkconditionalalways="true" delay="2.3" maxchargetime="0" setvalue="true">
+        <conditional maxchargetime="eq 999"/>
+      </StatusEffect>
+      </Containable>
+      <SlotIcon slotindex="0" texture="%ModDir:2953749635%/png/ui.png" sourcerect="418,202,71,50" origin="0.45,0.5" />
+      <!--2.灯-->
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable items="flashlight" hide="false" itempos="13,1" setactive="true" />
+        <SlotIcon slotindex="1" texture="Content/UI/CampaignUIAtlas2.png" sourcerect="896,536,128,64" origin="0.45,0.5" />
+      </SubContainer>
+      <!--3.护木-->
+      <SubContainer capacity="1" maxstacksize="1">
+        <SlotIcon slotindex="2" texture="%ModDir:2953749635%/png/ui.png" sourcerect="638,214,18,36" origin="0.45,0.5" />
+        <Containable items="tsm_advanced_grip" hide="false" itempos="30,-5" depth="0.56" setactive="true" />
+      </SubContainer>
+      <SubContainer capacity="1" maxstacksize="1">
+        <SlotIcon slotindex="3" texture="%ModDir:2953749635%/png/ui.png" sourcerect="517,220,82,22" origin="0.45,0.5" />
+        <Containable items="barrel" hide="false" itempos="60,6" containedspritedepth="0.51" Scale="0.20" setactive="true" />
+      </SubContainer>
+      <!--5.瞄具-->
+      <SubContainer capacity="1" maxstacksize="1">
+        <SlotIcon slotindex="4" texture="%ModDir:2953749635%/png/ui.png" sourcerect="695,219,47,27" origin="0.45,0.5" />
+        <Containable items="sighting" hide="false" itempos="-13,14" depth="0.56" setactive="true" />
+      </SubContainer>
+    </ItemContainer>
+    <aitarget sightrange="2200" soundrange="3800" fadeouttime="6" />
+    <!--品质-->
+    <Quality>
+      <QualityStat stattype="FirepowerMultiplier" value="0.1" />
+    </Quality>
+    <Upgrade gameversion="0.10.0.0" scale="0.5" />
+    <!--等级提示-->
+    <SkillRequirementHint identifier="weapons" level="65" />
+  </Item>
+  <!--fal-->
+  <Item name="反抗军FAL“法老”战斗步枪" identifier="tsm_fkj_fal" subcategory="tsm_separatists" category="weapon" cargocontaineridentifier="tsm_metalcrate" tags="mediumitem,weapon,gun,gunsmith,mountableweapon,provocativetohumanai,bulkyweapon" scale="0.27" impactsoundtag="impact_metal_light" description="">
+    <PreferredContainer primary="secarmcab" secondary="armcab,weaponholder" />
+    <Fabricate suitablefabricators="tsm_fabricator" requiredtime="30" requiresrecipe="false">
+      <RequiredSkill identifier="weapons" level="30" />
+      <RequiredItem identifier="tsm_yh_weaponbox" amount="2" />
+      <RequiredItem identifier="tsm_plastic" amount="1" />
+    </Fabricate>
+    <Deconstruct time="10">
+      <Item identifier="tsm_yh_weaponbox" />
+    </Deconstruct>
+    <InventoryIcon texture="%ModDir:2953749635%/weapons/反抗军/separatists.png" sourcerect="2023,2098,151,166" origin="0.5,0.5" />
+    <Sprite texture="%ModDir:2953749635%/weapons/反抗军/separatists.png" sourcerect="1062,301,531,107" depth="0.55" origin="0.5,0.5" />
+    <Body width="447" height="108" density="52" />
+    <Holdable slots="Any,RightHand+LeftHand" controlpose="true" holdpos="68,0" aimpos="72,3" handle1="-110,-15" handle2="45,5" holdangle="-35" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.8" setvalue="true" />
+      <StatusEffect type="OnSecondaryUse" target="Character" SpeedMultiplier="0.7" setvalue="true" />
+      <StatusEffect type="OnUse" target="Character" SpeedMultiplier="0.4" setvalue="true" />
+    </Holdable>
+    <RangedWeapon reload="0.13" penetration="0.15" holdtrigger="true" barrelpos="230,20" spread="10" unskilledspread="50" combatPriority="87" drawhudwhenequipped="true" crosshairscale="0.2">
+      <Crosshair texture="%ModDir:2953749635%/png/crosshair.png" sourcerect="32,275,198,198" />
+      <CrosshairPointer texture="%ModDir:2953749635%/png/crosshair.png" sourcerect="32,275,198,198" />
+      <ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="229,221,215,255" />
+      <StatusEffect type="OnUse" target="This" forceplaysounds="True">
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/fal1.ogg" type="OnUse" range="3000" selectionmode="Random" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/fal2.ogg" type="OnUse" range="3000" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Contained">
+        <Use />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This">
+        <Conditional Condition="eq 0" targetcontaineditem="true" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/reload7.ogg" range="2000" loop="false" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This">
+        <Explosion range="100.0" force="1" camerashake="23" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" delay="0.5" target="This" forceplaysounds="true">
+        <Conditional InWater="false"/>
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete1.ogg" type="OnUse" range="1500" selectionmode="Random" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete2.ogg" type="OnUse" range="1500" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete3.ogg" type="OnUse" range="1500" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete4.ogg" type="OnUse" range="1500" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This">
+        <ParticleEmitter particle="tsm_bulletfalldown" emitinterval="2.1" particleamount="1" particlespersecond="50" anglemin="70" anglemax="100" velocitymin="100" velocitymax="200" copyentityangle="true" scalemin="2" scalemax="2" />
+      </StatusEffect>
+      <RequiredItems items="762_51mag" type="Contained" msg="ItemMsgAmmoRequired" />
+      <RequiredSkill identifier="weapons" level="65" />
+      <!--动态准星-->
+      <StatusEffect type="Always" target="This" unskilledspread="-15">
+        <Conditional unskilledspread="gt 13" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" unskilledspread="+4" disabledeltatime="true" comparison="and">
+        <Conditional unskilledspread="lt 30" />
+        <Conditional CanRun="true" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" unskilledspread="+3" disabledeltatime="true" comparison="and">
+        <Conditional unskilledspread="lt 20" />
+        <Conditional CanRun="false" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" spread="-20">
+        <Conditional spread="gt 8" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" spread="+2" disabledeltatime="true" comparison="and">
+        <Conditional spread="lt 15" />
+        <Conditional CanRun="true" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" spread="+3" disabledeltatime="true" comparison="and">
+        <Conditional spread="lt 10" />
+        <Conditional CanRun="false" />
+      </StatusEffect>
+    </RangedWeapon>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="false" containedstateindicatorstyle="bullet" containedstateindicatorslot="0">
+      <!-- 外观 itempos(x)-=26 -->
+      <!--1.弹匣-->
+      <Containable items="762_51mag" hide="false" itempos="-8,-5" depth="0.56" setactive="true">
+      <!--换弹-->
+      <StatusEffect type="OnInserted" target="This" holdpos="20,-40" holdangle="70" maxchargetime="999" setvalue="true"/>
+        <StatusEffect type="OnInserted" target="This" setvalue="true">
+      <sound file="%ModDir%/ogg/sniper_reload2.ogg" type="OnInserted" range="500.0" loop="false" volume="1.5"/>
+      </StatusEffect>
+      <StatusEffect target="This" holdpos="68,0" aimpos="72,3" handle1="-110,-15" handle2="45,5" holdangle="-35" disabledeltatime="true" checkconditionalalways="true" delay="2.5" maxchargetime="0" setvalue="true">
+        <conditional maxchargetime="eq 999"/>
+      </StatusEffect>
+      </Containable>
+      <SlotIcon slotindex="0" texture="%ModDir:2953749635%/png/ui.png" sourcerect="418,202,71,50" origin="0.45,0.5" />
+      <!--2.灯-->
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable items="flashlight" hide="false" itempos="20,-1" setactive="true" />
+        <SlotIcon slotindex="1" texture="Content/UI/CampaignUIAtlas2.png" sourcerect="896,536,128,64" origin="0.45,0.5" />
+      </SubContainer>
+      <!--3.护木-->
+      <SubContainer capacity="1" maxstacksize="1">
+        <SlotIcon slotindex="2" texture="%ModDir:2953749635%/png/ui.png" sourcerect="638,214,18,36" origin="0.45,0.5" />
+        <Containable items="tsm_advanced_grip" hide="false" itempos="35,-6" depth="0.56" setactive="true" />
+      </SubContainer>
+      <SubContainer capacity="1" maxstacksize="1">
+        <SlotIcon slotindex="3" texture="%ModDir:2953749635%/png/ui.png" sourcerect="517,220,82,22" origin="0.45,0.5" />
+        <Containable items="barrel" hide="false" itempos="65,3" containedspritedepth="0.51" Scale="0.20" setactive="true" />
+      </SubContainer>
+    </ItemContainer>
+    <aitarget sightrange="2200" soundrange="3800" fadeouttime="6" />
+    <!--品质-->
+    <Quality>
+      <QualityStat stattype="FirepowerMultiplier" value="0.1" />
+    </Quality>
+    <Upgrade gameversion="0.10.0.0" scale="0.5" />
+    <!--等级提示-->
+    <SkillRequirementHint identifier="weapons" level="65" />
+  </Item>
+  <!--sg553-R-->
+  <Item name="反抗军SG553-R“突击者”步枪" identifier="tsm_fkj_sg553" subcategory="TSM" category="weapon" cargocontaineridentifier="tsm_metalcrate" tags="mediumitem,weapon,gun,gunsmith,mountableweapon,tsm_gun,provocativetohumanai,bulkyweapon" scale="0.26" impactsoundtag="impact_metal_light" description="">
+    <PreferredContainer primary="secarmcab" secondary="armcab,weaponholder" />
+    <Fabricate suitablefabricators="tsm_fabricator" requiredtime="40" requiresrecipe="false">
+      <RequiredSkill identifier="weapons" level="60" />
+      <RequiredItem identifier="tsm_yh_weaponbox" amount="1" />
+      <RequiredItem identifier="tsm_plastic" amount="2" />
+      <RequiredItem identifier="tsm_hpc" amount="1" />
+    </Fabricate>
+    <Deconstruct time="10">
+      <Item identifier="steel" />
+      <Item identifier="titanium" />
+    </Deconstruct>
+    <InventoryIcon texture="%ModDir:2953749635%/weapons/反抗军/separatists.png" sourcerect="2244,2119,133,152" origin="0.5,0.5" />
+    <Sprite texture="%ModDir:2953749635%/weapons/反抗军/separatists.png" sourcerect="1074,471,460,115" depth="0.55" origin="0.5,0.5" />
+    <Body width="518" height="98" density="52" />
+    <!--握持坐标:握持坐标(握把到身体距离),瞄准坐标(握把到身体距离),主手位置,副手位置,闲置握持角度-->
+    <Holdable slots="Any,RightHand+LeftHand" controlpose="true" holdpos="65,2" aimpos="65,2" handle1="-88,-18" handle2="42,10" holdangle="-35" msg="ItemMsgPickUpSelect">
+      <!--降低移动速度-->
+      <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.85" setvalue="true" />
+      <StatusEffect type="OnSecondaryUse" target="Character" SpeedMultiplier="0.38" setvalue="true" />
+      <StatusEffect type="OnUse" target="Character" SpeedMultiplier="0.3" setvalue="true" />
+    </Holdable>
+    <RangedWeapon reload="0.11" penetration="0.1" holdtrigger="true" barrelpos="205,35" spread="10" unskilledspread="25" combatPriority="85" drawhudwhenequipped="true" crosshairscale="0.3">
+      <Crosshair texture="%ModDir:2953749635%/png/crosshair.png" sourcerect="32,275,198,198" />
+      <CrosshairPointer texture="%ModDir:2953749635%/png/crosshair.png" sourcerect="32,275,198,198" />
+      <ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="229,221,215,255" />
+      <StatusEffect type="OnUse" target="This" forceplaysounds="true">
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/sg553.ogg" type="OnUse" range="3000" selectionmode="Random"/>
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This">
+        <!--后坐力,屏幕抖动-->
+        <Explosion range="100.0" force="1" camerashake="20" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" delay="0.5" target="This" forceplaysounds="true">
+        <Conditional InWater="false"/>
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete1.ogg" type="OnUse" range="1500" selectionmode="Random" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete2.ogg" type="OnUse" range="1500" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete3.ogg" type="OnUse" range="1500" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete4.ogg" type="OnUse" range="1500" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" Tags="tsm_burst_1" setvalue="true">
+        <Conditional HasTag="eq tsm_burst_4" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" Tags="tsm_burst_4" ReloadTimer="0.5" setvalue="true">
+        <Conditional HasTag="eq tsm_burst_3" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" Tags="tsm_burst_3" ReloadTimer="0.06" setvalue="true">
+        <Conditional HasTag="eq tsm_burst_2" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" Tags="tsm_burst_2" ReloadTimer="0.06" setvalue="true">
+        <Conditional HasTag="eq tsm_burst_1" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Contained">
+        <Use />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This">
+        <Conditional Condition="eq 0" targetcontaineditem="true" />
+        <Sound file="%ModDir:2953749635%/ogg/reload9.ogg" range="2000" loop="false" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This">
+        <ParticleEmitter particle="tsm_bulletfalldown" emitinterval="2.1" particleamount="1" particlespersecond="50" anglemin="70" anglemax="100" velocitymin="100" velocitymax="200" copyentityangle="true" scalemin="2" scalemax="2" />
+      </StatusEffect>
+      <RequiredItems items="762mag" type="Contained" msg="ItemMsgAmmoRequired" />
+      <RequiredSkill identifier="weapons" level="70" />
+      <!--动态准星-->
+      <StatusEffect type="Always" target="This" unskilledspread="-20">
+        <Conditional unskilledspread="gt 13" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" unskilledspread="+3" disabledeltatime="true" comparison="and">
+        <Conditional unskilledspread="lt 30" />
+        <Conditional CanRun="true" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" unskilledspread="+4" disabledeltatime="true" comparison="and">
+        <Conditional unskilledspread="lt 20" />
+        <Conditional CanRun="false" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" spread="-20">
+        <Conditional spread="gt 8" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" spread="+3" disabledeltatime="true" comparison="and">
+        <Conditional spread="lt 15" />
+        <Conditional CanRun="true" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" spread="+2" disabledeltatime="true" comparison="and">
+        <Conditional spread="lt 10" />
+        <Conditional CanRun="false" />
+      </StatusEffect>
+    </RangedWeapon>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="false" itempos="10,-33" containedstateindicatorstyle="bullet" containedstateindicatorslot="0">
+      <Containable items="762mag" setactive="true">
+      <!--换弹-->
+      <StatusEffect type="OnInserted" target="This" holdpos="20,-40" holdangle="70" maxchargetime="999" setvalue="true"/>
+        <StatusEffect type="OnInserted" target="This" setvalue="true">
+      <sound file="%ModDir%/ogg/reload1.ogg" type="OnInserted" range="500.0" loop="false" volume="1.5"/>
+      </StatusEffect>
+      <StatusEffect target="This" holdpos="65,2" aimpos="65,2" handle1="-88,-18" handle2="42,10" holdangle="-35" disabledeltatime="true" checkconditionalalways="true" delay="2.05" maxchargetime="0" setvalue="true">
+        <conditional maxchargetime="eq 999"/>
+      </StatusEffect>
+      </Containable>
+      <SlotIcon slotindex="0" texture="%ModDir:2953749635%/png/ui.png" sourcerect="418,202,71,50" origin="0.45,0.5" />
+      <SlotIcon slotindex="1" texture="Content/UI/CampaignUIAtlas2.png" sourcerect="896,536,128,64" origin="0.45,0.5" />
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable items="flashlight" hide="false" itempos="30,0" setactive="true" />
+      </SubContainer>
+      <SubContainer capacity="1" maxstacksize="1">
+        <SlotIcon slotindex="2" texture="%ModDir:2953749635%/png/ui.png" sourcerect="695,219,47,27" origin="0.45,0.5" />
+        <Containable items="sighting" hide="false" itempos="0,13" containedspritedepth="0.56" setactive="true" />
+      </SubContainer>
+    <SubContainer capacity="1" maxstacksize="1">
+      <SlotIcon slotindex="3" texture="%ModDir:2953749635%/png/ui.png" sourcerect="517,220,82,22" origin="0.45,0.5" />
+      <Containable items="barrel" hide="false" itempos="58,4.5" setactive="true" />
+    </SubContainer>
+    </ItemContainer>
+    <CustomInterface canbeselected="true" drawhudwhenequipped="true">
+      <GuiFrame relativesize="0.08,0.1" anchor="BottomLeft" relativeoffset="0,0.31" style="ItemUI" />
+      <Button text="fullauto">
+        <StatusEffect type="OnUse" target="This" Tags="" unskilledspread="15" setvalue="true" />
+      </Button>
+      <Button text="burst">
+        <StatusEffect type="OnUse" target="This" Tags="tsm_burst_1" unskilledspread="15" setvalue="true" />
+      </Button>
+    </CustomInterface>
+    <aitarget sightrange="3000" soundrange="5000" fadeouttime="10" />
+    <Quality>
+      <QualityStat stattype="FirepowerMultiplier" value="0.1" />
+    </Quality>
+    <Upgrade gameversion="0.10.0.0" scale="0.5" />
+    <SkillRequirementHint identifier="weapons" level="70" />
+  </Item>
+  <!--JQ430-->
+  <Item name="JQ430" identifier="tsm_fkj_jq430" category="weapon" subcategory="tsm_separatists" cargocontaineridentifier="metalcrate" tags="mediumitem,weapon,gun,gunsmith,mountableweapon,provocativetohumanai,bulkyweapon" scale="0.23" impactsoundtag="impact_metal_light" description="">
+    <PreferredContainer primary="secarmcab" secondary="armcab,weaponholder" />
+    <Deconstruct time="10">
+      <Item identifier="titanium" />
+      <Item identifier="tsm_item_box" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="tsm_fabricator" requiredtime="20" requiresrecipe="false">
+      <RequiredSkill identifier="weapons" level="70" />
+      <RequiredItem identifier="tsm_fkj_jq430" amount="1" />
+      <RequiredItem identifier="tsm_yh_weaponbox" amount="1" />
+    </Fabricate>
+    <InventoryIcon texture="%ModDir:2953749635%/weapons/反抗军/separatists.png" sourcerect="772,2313,174,192" origin="0.5,0.5" />
+    <Sprite texture="%ModDir:2953749635%/weapons/反抗军/separatists.png" sourcerect="12,755,583,119" depth="0.55" origin="0.5,0.5" />
+    <Body width="583" height="119" density="52" />
+    <Holdable slots="Any,RightHand+LeftHand" controlpose="true" holdpos="70,-5" aimpos="60,-5" handle1="-130,-25" handle2="53,8" holdangle="-35" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.8" setvalue="true" />
+      <StatusEffect type="OnSecondaryUse" target="Character" SpeedMultiplier="0.7" setvalue="true" />
+      <StatusEffect type="OnUse" target="Character" SpeedMultiplier="0.3" setvalue="true" />
+    </Holdable>
+    <!--握持坐标:握持坐标(握把到身体距离),瞄准坐标(握把到身体距离),主手位置,副手位置,闲置握持角度-->
+    <RangedWeapon reload="0.12" weapondamagemodifier="1.3" holdtrigger="true" barrelpos="230,5" spread="8" unskilledspread="50" combatPriority="88" drawhudwhenequipped="true" crosshairscale="0.25">
+      <Crosshair texture="%ModDir:2953749635%/png/crosshair.png" sourcerect="32,275,198,198" />
+      <CrosshairPointer texture="%ModDir:2953749635%/png/crosshair.png" sourcerect="320,289,178,184" />
+      <ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="229,221,215,255" />
+      <Sound file="%ModDir:2953749635%/weapons/反抗军/jq4301.ogg" type="OnUse" range="3000" selectionmode="Random" />
+      <Sound file="%ModDir:2953749635%/weapons/反抗军/jq4302.ogg" type="OnUse" range="3000" selectionmode="Random" />
+      <StatusEffect type="OnUse" target="This" delay="0.5" forceplaysounds="true">
+        <Conditional InWater="false"/>
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete1.ogg" type="OnUse" range="1500" selectionmode="Random" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete2.ogg" type="OnUse" range="1500" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete3.ogg" type="OnUse" range="1500" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete4.ogg" type="OnUse" range="1500" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This">
+        <!--后坐力,屏幕抖动-->
+        <Explosion range="100.0" force="0.8" camerashake="27" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Contained">
+        <Use />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This">
+        <Conditional Condition="eq 0" targetcontaineditem="true" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/reload7.ogg" range="2000" loop="false" />
+      </StatusEffect>
+      <RequiredItems items="762mag,grenade" type="Contained" msg="ItemMsgAmmoRequired" />
+      <RequiredSkill identifier="weapons" level="70" />
+      <StatusEffect type="OnUse" target="This">
+        <ParticleEmitter particle="tsm_bulletfalldown" emitinterval="2.1" particleamount="1" particlespersecond="50" anglemin="70" anglemax="100" velocitymin="100" velocitymax="200" copyentityangle="true" scalemin="2" scalemax="2" />
+      </StatusEffect>
+      <!--动态准星-->
+      <StatusEffect type="Always" target="This" unskilledspread="-20">
+        <Conditional unskilledspread="gt 10" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" unskilledspread="+2" disabledeltatime="true" comparison="and">
+        <Conditional unskilledspread="lt 30" />
+        <Conditional CanRun="true" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" unskilledspread="+4" disabledeltatime="true" comparison="and">
+        <Conditional unskilledspread="lt 20" />
+        <Conditional CanRun="false" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" spread="-20">
+        <Conditional spread="gt 6" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" spread="+3" disabledeltatime="true" comparison="and">
+        <Conditional spread="lt 10" />
+        <Conditional CanRun="true" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This,Character" spread="+2" disabledeltatime="true" comparison="and">
+        <Conditional spread="lt 8" />
+        <Conditional CanRun="false" />
+      </StatusEffect>
+    </RangedWeapon>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="false" containedstateindicatorstyle="bullet" containedstateindicatorslot="1" containedspritedepth="0.56">
+      <Containable items="grenade" hide="true"/>
+      <SubContainer capacity="1" maxstacksize="1" >
+      <Containable items="762mag" setactive="true" hideitems="false" itempos="-9,-5">
+      <!--换弹-->
+      <StatusEffect type="OnInserted" target="This" holdpos="20,-40" holdangle="70" maxchargetime="999" setvalue="true"/>
+        <StatusEffect type="OnInserted" target="This" setvalue="true">
+      <sound file="%ModDir%/ogg/reload3.ogg" type="OnInserted" range="500.0" loop="false" volume="1.5"/>
+      </StatusEffect>
+      <StatusEffect target="This" holdpos="70,-5" aimpos="60,-5" handle1="-130,-25" handle2="53,8" holdangle="-35" disabledeltatime="true" checkconditionalalways="true" delay="2.1" maxchargetime="0" setvalue="true">
+        <conditional maxchargetime="eq 999"/>
+      </StatusEffect>
+      </Containable>
+    </SubContainer>
+      <SlotIcon slotindex="0" texture="Content/UI/ContainerIndicators.png" sourcerect="4,216,75,35" origin="0.5,0.5" />
+      <SlotIcon slotindex="1" texture="%ModDir:2953749635%/png/ui.png" sourcerect="418,202,71,50" origin="0.45,0.5" />
+      <SlotIcon slotindex="2" texture="Content/UI/CampaignUIAtlas2.png" sourcerect="896,536,128,64" origin="0.45,0.5" />
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable items="flashlight" hide="true" itempos="26,0" depth="0.54" setactive="true" />
+      </SubContainer>
+    </ItemContainer>
+    <aitarget sightrange="2400" soundrange="4000" fadeouttime="6" />
+    <Quality>
+      <QualityStat stattype="FirepowerMultiplier" value="0.15" />
+    </Quality>
+    <Upgrade gameversion="0.10.0.0" scale="0.5" />
+    <LightComponent LightColor="0.8,0.8,0.8,1.0" Flicker="0.02" range="480" powerconsumption="0" IsOn="false" canbeselected="true">
+      <LightTexture texture="Content/Lights/lightcone.png" origin="0.005, 0.501" size="1.5,1.0" />
+    </LightComponent>
+    <CustomInterface canbeselected="true" drawhudwhenequipped="true">
+      <GuiFrame relativesize="0.08,0.08" anchor="BottomLeft" relativeoffset="0,0.4" style="ItemUI" />
+      <!--按钮宽,高,relativeoffset,absoluteoffset-->
+      <TickBox text="flashlight">
+        <StatusEffect type="OnUse" target="This" IsOn="true" />
+        <StatusEffect type="OnSecondaryUse" target="This" IsOn="false" />
+      </TickBox>
+    </CustomInterface>
+    <SkillRequirementHint identifier="weapons" level="70" />
+  </Item>
+  <Item name="AK12 custom" identifier="tsm_fkj_ak12_c" subcategory="tsm_separatists" category="weapon" cargocontaineridentifier="tsm_metalcrate" tags="mediumitem,weapon,gun,gunsmith,mountableweapon,ak12,provocativetohumanai,bulkyweapon" scale="0.27" impactsoundtag="impact_metal_light" description="">
+    <PreferredContainer primary="secarmcab" secondary="armcab,weaponholder" />
+    <!--分解-->
+    <Deconstruct time="10">
+      <Item identifier="tsm_yh_weaponbox" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="tsm_fabricator" requiredtime="20" requiresrecipe="false">
+      <RequiredSkill identifier="weapons" level="70" />
+      <RequiredItem identifier="tsm_fkj_ak12_c" amount="1" />
+      <RequiredItem identifier="tsm_yh_weaponbox" amount="1" />
+    </Fabricate>
+    <!--图标以及局内贴图-->
+    <InventoryIcon texture="%ModDir:2953749635%/weapons/反抗军/separatists.png" sourcerect="0,2048,176,196" origin="0.5,0.5" />
+    <Sprite texture="%ModDir:2953749635%/weapons/反抗军/separatists.png" sourcerect="715,649,451,108" depth="0.55" origin="0.5,0.5" />
+    <Body width="451" height="108" density="52" />
+    <!--存储格子（左手右手）、控制姿势、持握距离、瞄准距离、右手位置、左手位置（左右手位置均为面向右边时的状态）、持握角度、捡起音效-->
+    <Holdable slots="Any,RightHand+LeftHand" controlpose="true" holdpos="63,-5" aimpos="65,-5" handle1="-100,-10" handle2="45,5" holdangle="-35" msg="ItemMsgPickUpSelect">
+      <!--拿手上时减速、瞄准时减速以及射击时减速-->
+      <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.9" setvalue="true" />
+      <StatusEffect type="OnSecondaryUse" target="Character" SpeedMultiplier="0.75" setvalue="true" />
+      <StatusEffect type="OnUse" target="Character" SpeedMultiplier="0.45" setvalue="true" />
+    </Holdable>
+    <!--握持坐标:握持坐标(握把到身体距离),瞄准坐标(握把到身体距离),主手位置,副手位置,闲置握持角度-->
+    <RangedWeapon reload="0.11" weapondamagemodifier="1.2" penetration="0.1" holdtrigger="true" barrelpos="230,20" spread="6" unskilledspread="60" combatPriority="90" drawhudwhenequipped="true" crosshairscale="0.2">
+      <!--准星图标-->
+      <Crosshair texture="%ModDir:2953749635%/png/crosshair.png" sourcerect="32,275,198,198" />
+      <CrosshairPointer texture="%ModDir:2953749635%/png/crosshair.png" sourcerect="32,275,198,198" />
+      <!--枪口火焰-->
+      <ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="229,221,215,255" />
+      <!--枪声-->
+      <Sound file="%ModDir:2953749635%/weapons/反抗军/ak121.ogg" type="OnUse" range="3000" selectionmode="Random" />
+      <Sound file="%ModDir:2953749635%/weapons/反抗军/ak122.ogg" type="OnUse" range="3000" />
+      <Sound file="%ModDir:2953749635%/weapons/反抗军/ak123.ogg" type="OnUse" range="3000" />
+      <StatusEffect type="OnUse" target="Contained">
+        <Use />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This">
+        <Conditional Condition="eq 0" targetcontaineditem="true" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/reload7.ogg" range="2000" loop="false" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This">
+        <!--后坐力,屏幕抖动-->
+        <Explosion range="100.0" force="0.6" camerashake="20" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" />
+      </StatusEffect>
+      <!--子弹落地音效（延迟0.5s）-->
+      <StatusEffect type="OnUse" target="This" delay="0.5" forceplaysounds="true">
+        <Conditional InWater="false"/>
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete1.ogg" type="OnUse" range="1500" selectionmode="Random" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete2.ogg" type="OnUse" range="1500" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete3.ogg" type="OnUse" range="1500" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete4.ogg" type="OnUse" range="1500" />
+      </StatusEffect>
+      <!--抛弹壳-->
+      <StatusEffect type="OnUse" target="This">
+        <ParticleEmitter particle="tsm_bulletfalldown" emitinterval="2.1" particleamount="1" particlespersecond="50" anglemin="70" anglemax="100" velocitymin="100" velocitymax="200" copyentityangle="true" scalemin="2" scalemax="2" />
+      </StatusEffect>
+      <!--需要的弹匣以及武器等级-->
+      <RequiredItems items="12mag" type="Contained" msg="ItemMsgAmmoRequired" />
+      <RequiredSkill identifier="weapons" level="60" />
+    </RangedWeapon>
+    <!--里容器-->
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="false" containedstateindicatorstyle="bullet" containedstateindicatorslot="0">
+      <!-- 外观 itempos(x)-=26 -->
+      <!--1.弹匣-->
+      <Containable items="12mag" hide="false" itempos="-5,-5" depth="0.56" setactive="true">
+      <!--换弹-->
+      <StatusEffect type="OnInserted" target="This" holdpos="20,-40" holdangle="70" maxchargetime="999" setvalue="true"/>
+        <StatusEffect type="OnInserted" target="This" setvalue="true">
+      <sound file="%ModDir%/ogg/reload2.ogg" type="OnInserted" range="500.0" loop="false" volume="1.5"/>
+      </StatusEffect>
+      <StatusEffect target="This" holdpos="60,-5" aimpos="60,-5" handle1="-90,-10" handle2="45,5" holdangle="-35" disabledeltatime="true" checkconditionalalways="true" delay="2.1" maxchargetime="0" setvalue="true">
+        <conditional maxchargetime="eq 999"/>
+      </StatusEffect>
+      </Containable>
+      <SlotIcon slotindex="0" texture="%ModDir:2953749635%/png/ui.png" sourcerect="418,202,71,50" origin="0.45,0.5" />
+    </ItemContainer>
+    <aitarget sightrange="2500" soundrange="4500" fadeouttime="6" />
+    <!--品质-->
+    <Quality>
+      <QualityStat stattype="FirepowerMultiplier" value="0.15" />
+    </Quality>
+    <Upgrade gameversion="0.10.0.0" scale="0.5" />
+    <!--等级提示-->
+    <SkillRequirementHint identifier="weapons" level="60" />
+    <LightComponent LightColor="0.8,0.8,0.8,1.0" Flicker="0.02" range="480" powerconsumption="0" IsOn="false" canbeselected="true">
+      <LightTexture texture="Content/Lights/lightcone.png" origin="0.005, 0.501" size="1.5,1.0" />
+    </LightComponent>
+    <CustomInterface canbeselected="true" drawhudwhenequipped="true">
+      <GuiFrame relativesize="0.08,0.08" anchor="BottomLeft" relativeoffset="0,0.4" style="ItemUI" />
+      <!--按钮宽,高,relativeoffset,absoluteoffset-->
+      <TickBox text="flashlight">
+        <StatusEffect type="OnUse" target="This" IsOn="true" />
+        <StatusEffect type="OnSecondaryUse" target="This" IsOn="false" />
+      </TickBox>
+    </CustomInterface>
+  </Item>
+  <Item name="AK105 custom" identifier="tsm_fkj_ak105_c" subcategory="tsm_separatists" category="weapon" cargocontaineridentifier="tsm_metalcrate" tags="mediumitem,weapon,gun,gunsmith,mountableweapon,provocativetohumanai" scale="0.25" impactsoundtag="impact_metal_light" description="">
+    <PreferredContainer primary="secarmcab" secondary="armcab,weaponholder" />
+    <!--分解-->
+    <Deconstruct time="10">
+      <Item identifier="tsm_fkj_ak74" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="tsm_fabricator" requiredtime="20" requiresrecipe="false">
+      <RequiredSkill identifier="weapons" level="70" />
+      <RequiredItem identifier="tsm_fkj_ak105_c" amount="1" />
+      <RequiredItem identifier="tsm_yh_weaponbox" amount="1" />
+    </Fabricate>
+    <!--图标以及局内贴图-->
+    <InventoryIcon texture="%ModDir:2953749635%/weapons/反抗军/separatists.png" sourcerect="186,2050,182,191" origin="0.5,0.5" />
+    <Sprite texture="%ModDir:2953749635%/weapons/反抗军/separatists.png" sourcerect="725,826,432,108" depth="0.55" origin="0.5,0.5" />
+    <Body width="432" height="108" density="52" />
+    <!--存储格子（左手右手）、控制姿势、持握距离、瞄准距离、右手位置、左手位置（左右手位置均为面向右边时的状态）、持握角度、捡起音效-->
+    <Holdable slots="Any,RightHand+LeftHand" controlpose="true" holdpos="60,-5" aimpos="60,-5" handle1="-90,-10" handle2="45,5" holdangle="-35" msg="ItemMsgPickUpSelect">
+      <!--拿手上时减速、瞄准时减速以及射击时减速-->
+      <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.8" setvalue="true" />
+      <StatusEffect type="OnSecondaryUse" target="Character" SpeedMultiplier="0.6" setvalue="true" />
+      <StatusEffect type="OnUse" target="Character" SpeedMultiplier="0.4" setvalue="true" />
+    </Holdable>
+    <!--握持坐标:握持坐标(握把到身体距离),瞄准坐标(握把到身体距离),主手位置,副手位置,闲置握持角度-->
+    <RangedWeapon reload="0.1" weapondamagemodifier="1.2" penetration="0.1" holdtrigger="true" barrelpos="220,20" spread="7" unskilledspread="60" combatPriority="90" drawhudwhenequipped="true" crosshairscale="0.25">
+      <!--准星图标-->
+      <Crosshair texture="%ModDir:2953749635%/png/crosshair.png" sourcerect="32,275,198,198" />
+      <CrosshairPointer texture="%ModDir:2953749635%/png/crosshair.png" sourcerect="32,275,198,198" />
+      <!--枪口火焰-->
+      <ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="229,221,215,255" />
+      <!--枪声-->
+      <Sound file="%ModDir:2953749635%/weapons/反抗军/ak1051.ogg" type="OnUse" range="3000" selectionmode="Random" />
+      <Sound file="%ModDir:2953749635%/weapons/反抗军/ak1052.ogg" type="OnUse" range="3000" />
+      <Sound file="%ModDir:2953749635%/weapons/反抗军/ak1053.ogg" type="OnUse" range="3000" />
+      <StatusEffect type="OnUse" target="Contained">
+        <Use />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This">
+        <Conditional Condition="eq 0" targetcontaineditem="true" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/reload7.ogg" range="2000" loop="false" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This">
+        <!--后坐力,屏幕抖动-->
+        <Explosion range="100.0" force="0.5" camerashake="26" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" />
+      </StatusEffect>
+      <!--子弹落地音效（延迟0.5s）-->
+      <StatusEffect type="OnUse" target="This" delay="0.5" forceplaysounds="true">
+        <Conditional InWater="false"/>
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete1.ogg" type="OnUse" range="1500" selectionmode="Random" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete2.ogg" type="OnUse" range="1500" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete3.ogg" type="OnUse" range="1500" />
+        <Sound file="%ModDir:2953749635%/weapons/反抗军/bullet_concerete4.ogg" type="OnUse" range="1500" />
+      </StatusEffect>
+      <!--抛弹壳-->
+      <StatusEffect type="OnUse" target="This">
+        <ParticleEmitter particle="tsm_bulletfalldown" emitinterval="2.1" particleamount="1" particlespersecond="50" anglemin="70" anglemax="100" velocitymin="100" velocitymax="200" copyentityangle="true" scalemin="2" scalemax="2" />
+      </StatusEffect>
+      <!--需要的弹匣以及武器等级-->
+      <RequiredItems items="545mag,grenade" type="Contained" msg="ItemMsgAmmoRequired" />
+      <RequiredSkill identifier="weapons" level="40" />
+    </RangedWeapon>
+    <!--里容器-->
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="false" containedstateindicatorstyle="bullet" containedstateindicatorslot="1" containedspritedepth="0.56">
+      <Containable items="grenade" hide="true"/>
+      <SubContainer capacity="1" maxstacksize="1" >
+      <Containable items="545mag" setactive="true" hideitems="false" itempos="-1,-7">
+      <!--换弹-->
+      <StatusEffect type="OnInserted" target="This" holdpos="20,-40" holdangle="70" maxchargetime="999" setvalue="true"/>
+      <StatusEffect type="OnInserted" target="This" setvalue="true">
+        <sound file="%ModDir%/ogg/reload2.ogg" type="OnInserted" range="500.0" loop="false" volume="1.5"/>
+      </StatusEffect>
+      <StatusEffect target="This" holdpos="60,-5" aimpos="60,-5" handle1="-90,-10" handle2="45,5" holdangle="-35" disabledeltatime="true" checkconditionalalways="true" delay="1.9" maxchargetime="0" setvalue="true">
+        <conditional maxchargetime="eq 999"/>
+      </StatusEffect>
+    </Containable>
+    </SubContainer>
+      <SlotIcon slotindex="0" texture="Content/UI/ContainerIndicators.png" sourcerect="4,216,75,35" origin="0.5,0.5" />
+      <SlotIcon slotindex="1" texture="%ModDir:2953749635%/png/ui.png" sourcerect="418,202,71,50" origin="0.45,0.5" />
+    </ItemContainer>
+    <!--CustomInterface canbeselected="false" drawhudwhenequipped="true" allowuioverlap="true">
+            <GuiFrame relativesize="0.12,0.1" anchor="CenterLeft" pivot="BottomLeft" relativeoffset="0.006,-0.05" style="ItemUI" />
+            <TickBox text="entityname.grenadelauncher">
+                <StatusEffect type="OnUse" target="Contained" targetidentifiers="grenade" setvalue="true" />
+                <StatusEffect type="OnSecondaryUse" target="Contained" targetidentifiers="grenade" setvalue="true" />
+            </TickBox>
+        </CustomInterface-->
+    <aitarget sightrange="2500" soundrange="5000" fadeouttime="6" />
+    <!--品质-->
+    <Quality>
+      <QualityStat stattype="FirepowerMultiplier" value="0.15" />
+    </Quality>
+    <Upgrade gameversion="0.10.0.0" scale="0.5" />
+    <!--等级提示-->
+    <SkillRequirementHint identifier="weapons" level="40" />
+    <LightComponent LightColor="0.8,0.8,0.8,1.0" Flicker="0.02" range="480" powerconsumption="0" IsOn="false" canbeselected="true">
+      <LightTexture texture="Content/Lights/lightcone.png" origin="0.005, 0.501" size="1.5,1.0" />
+    </LightComponent>
+    <CustomInterface canbeselected="true" drawhudwhenequipped="true">
+      <GuiFrame relativesize="0.08,0.08" anchor="BottomLeft" relativeoffset="0,0.4" style="ItemUI" />
+      <!--按钮宽,高,relativeoffset,absoluteoffset-->
+      <TickBox text="flashlight">
+        <StatusEffect type="OnUse" target="This" IsOn="true" />
+        <StatusEffect type="OnSecondaryUse" target="This" IsOn="false" />
+      </TickBox>
+    </CustomInterface>
+  </Item>
+</Items>
+</Override>

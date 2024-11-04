@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentpackage name="九州武库换弹补丁" modversion="1.0.0" corepackage="False" steamworkshopid="3357061387" gameversion="1.6.18.1">
+  <Item file="%ModDir%/tsm.xml" />
+  <Item file="%ModDir%/pistols.xml" />
+  <Item file="%ModDir%/heavy_weapons.xml" />
+  <Item file="%ModDir%/legacy_weapons.xml" />
+  <Item file="%ModDir%/separatists_weapons.xml" />
+  <Item file="%ModDir%/coalition_weapons.xml" />
+</contentpackage>
